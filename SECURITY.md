@@ -9,7 +9,7 @@ Security fixes are made for the latest release and the `main` branch.
 ## Reporting a vulnerability
 
 **Please do not open a public issue.** Report the problem privately through
-[GitHub Security Advisories](https://github.com/NorbertDudek/phpMyPassword/security/advisories/new).
+[GitHub Security Advisories](https://github.com/NorbertDudek/phpPassMan/security/advisories/new).
 
 Include as much as you can:
 

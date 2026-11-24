@@ -4,7 +4,7 @@ Thanks for your interest in improving phpPassMan! Bug reports, translations, doc
 
 ## Reporting bugs and ideas
 
-- Search [existing issues](https://github.com/NorbertDudek/phpMyPassword/issues) first.
+- Search [existing issues](https://github.com/NorbertDudek/phpPassMan/issues) first.
 - Use the issue templates. **Never paste passwords, `config.php` or real vault data.**
 - Security problems go through a private advisory — see [SECURITY.md](SECURITY.md).
 

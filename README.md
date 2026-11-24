@@ -6,7 +6,7 @@
 
 **A self-hosted, multi-user password vault for teams — written in plain PHP and MySQL.**
 
-[![CI](https://github.com/NorbertDudek/phpMyPassword/actions/workflows/ci.yml/badge.svg)](https://github.com/NorbertDudek/phpMyPassword/actions/workflows/ci.yml)
+[![CI](https://github.com/NorbertDudek/phpPassMan/actions/workflows/ci.yml/badge.svg)](https://github.com/NorbertDudek/phpPassMan/actions/workflows/ci.yml)
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4.svg?logo=php&logoColor=white)](#requirements)
 [![MySQL / MariaDB](https://img.shields.io/badge/MySQL%20%2F%20MariaDB-supported-4479A1.svg?logo=mysql&logoColor=white)](#requirements)
@@ -73,7 +73,7 @@ It is free and open source — no user limits, no paid tiers, no feature restric
 
 1. **Get the code** — clone the repository or download the latest release into a folder served by your web server:
    ```bash
-   git clone https://github.com/NorbertDudek/phpMyPassword.git passman
+   git clone https://github.com/NorbertDudek/phpPassMan.git passman
    ```
 
 2. **Create a database and a database user** (the installer does not create them):

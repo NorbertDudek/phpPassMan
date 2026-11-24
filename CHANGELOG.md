@@ -32,5 +32,5 @@ Release published as phpPassMan.
 - LDAP authentication.
 - Dependency on the PHP mcrypt extension.
 
-[Unreleased]: https://github.com/NorbertDudek/phpMyPassword/compare/v2.4.2...HEAD
-[2.4.2]: https://github.com/NorbertDudek/phpMyPassword/releases/tag/v2.4.2
+[Unreleased]: https://github.com/NorbertDudek/phpPassMan/compare/v2.4.2...HEAD
+[2.4.2]: https://github.com/NorbertDudek/phpPassMan/releases/tag/v2.4.2
