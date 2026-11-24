@@ -15,7 +15,7 @@ if ($require_https == true) {
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>phpMyVault</title>
+		<title>phpPassMan</title>
 		<link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap-theme.css"/>
 		

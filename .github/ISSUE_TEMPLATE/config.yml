@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/NorbertDudek/phpMyPassword/security/advisories/new
+    about: Please do not report security issues publicly - use a private advisory instead.
+  - name: Custom development and deployment help
+    url: https://kandisoft.pl
+    about: Paid custom features, priority support and deployment help from KANDISoft.

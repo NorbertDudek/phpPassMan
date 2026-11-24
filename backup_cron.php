@@ -1,6 +1,6 @@
 <?php
 // Automatyczna kopia zapasowa uruchamiana z crona (tylko z linii polecen), np. co 15 minut:
-//   */15 * * * * php /sciezka/do/phpMyPassword/backup_cron.php
+//   */15 * * * * php /sciezka/do/phpPassMan/backup_cron.php
 // Kopia powstaje tylko wtedy, gdy wedlug harmonogramu z panelu administratora nadszedl jej czas.
 if (php_sapi_name() !== 'cli') {
 	http_response_code(404);

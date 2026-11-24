@@ -1,2 +1,20 @@
-# Pliki kopii zapasowych bazy (Admin > Kopia zapasowa)
+# Local configuration with database credentials and the secret key - never commit
+resources/config.php
+resources/config.php.*
+resources/config.php~
+
+# Database backups (Admin > Backup)
 backups/
+
+# Editors and OS files
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary / exported files
+*.bak
+*.tmp
+exportpassword.csv

@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>phpMyVault</title>
+		<title>phpPassMan</title>
 		<link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.css"/>
 		
 		<!--[if lt IE 9]>
@@ -101,7 +101,7 @@ $query = "CREATE OR REPLACE VIEW `vGroupMembers` AS select `group_members`.`gid`
 run_init_query($query, $db_user, $db_pass, $db_name);
 echo " DONE<br>\n";
 ?>
-					<p><div class="alert alert-info">If there are no errors listed above, you can delete install.php an begin using phpMyVault!</div></p>
+					<p><div class="alert alert-info">If there are no errors listed above, you can start using phpPassMan. Delete or restrict access to the setup/ folder now.</div></p>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,53 @@
+name: Bug report
+description: Something does not work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. **Do not paste passwords, `config.php` or real vault data.**
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See error
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: phpPassMan version or commit
+      placeholder: e.g. 1.0.0 or a1b2c3d
+  - type: input
+    id: php
+    attributes:
+      label: PHP version
+      placeholder: e.g. 8.2.12
+    validations:
+      required: true
+  - type: input
+    id: db
+    attributes:
+      label: Database server and version
+      placeholder: e.g. MariaDB 10.11
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: e.g. Firefox 140
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error messages / logs
+      description: PHP error log or browser console output (remove any secrets).
+      render: text
