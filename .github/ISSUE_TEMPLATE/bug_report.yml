@@ -27,7 +27,7 @@ body:
     id: version
     attributes:
       label: phpPassMan version or commit
-      placeholder: e.g. 1.0.0 or a1b2c3d
+      placeholder: e.g. 2.4.2 or a1b2c3d
   - type: input
     id: php
     attributes:
