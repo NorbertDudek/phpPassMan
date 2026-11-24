@@ -5,7 +5,8 @@ require_once('header.php');
 $gid = $_GET['gid'];
 $group_name = get_permisiongroup_name($gid);
 $group_description = get_permisiongroup_description($gid);
-$members = get_permisiongroup_members($gid);
+// get_permisiongroup_members() zwraca NULL, gdy grupa nie ma członków
+$members = get_permisiongroup_members($gid) ?: array();
 ?>
 
 <div class="row">
@@ -13,7 +14,7 @@ $members = get_permisiongroup_members($gid);
 	<div class="col-sm-3">&nbsp;</div>
 	<div class="col-sm-6">
 		<div class="panel panel-primary">
-			<div class="panel-heading"><?php echo _("Edit Group"); ?></div>
+			<div class="panel-heading"><?php echo _("Edit role"); ?></div>
 			<div class="panel-body">
 				<form action="do_edit_permisiongroup.php" method="POST" class="form-horizontal">
 					<input type="hidden" name="gid" value="<?php echo $gid?>">
@@ -32,7 +33,7 @@ $members = get_permisiongroup_members($gid);
 					<div class="form-group">
 						<div class="col-sm-3">&nbsp;</div>
 						<div class="col-sm-9">
-							<input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Save changes"); ?>">
+							<input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Save changes"); ?>"> <?php echo cancel_button('permisiongroups.php', "btn-sm"); ?>
 						</div>
 					</div>
 				</form>
@@ -41,7 +42,7 @@ $members = get_permisiongroup_members($gid);
 					<div class="form-group">
 						<label for="members" class="col-sm-3 control-label"><?php echo _("Members"); ?>:</label>
 						<div class="col-sm-9">
-							<select class="form-control input-sm" name="group_members[]" multiple>
+							<select class="form-control input-sm" name="group_members[]" id="group_members_select" multiple>
 								<?php foreach($members as $member) { ?>
 								<option value="<?php echo $member['uid']; ?>"><?php echo $member['login']; ?></option>
 								<?php } ?>
@@ -51,7 +52,7 @@ $members = get_permisiongroup_members($gid);
 					<div class="form-group">
 						<div class="col-sm-3">&nbsp;</div>
 						<div class="col-sm-9">
-							<a href="add_permisiongroup_member.php?gid=<?php echo $gid;?>" class="btn btn-sm btn-primary"><?php echo _("Add Member(s)"); ?></button></a>
+							<a href="add_permisiongroup_member.php?gid=<?php echo $gid;?>" class="btn btn-sm btn-primary"><?php echo _("Add Member(s)"); ?></a>
 							<input type="submit" class="btn btn-sm btn-danger" value="<?php echo _("Remove Member(s)"); ?>">
 						</div>
 					</div>
@@ -60,6 +61,10 @@ $members = get_permisiongroup_members($gid);
 		</div>
 	</div>
 </div>
+
+<script>
+initFiltrowalnyMultiSelect(document.getElementById('group_members_select'));
+</script>
 
 <?php
 require_once('footer.php');

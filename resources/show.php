@@ -10,7 +10,7 @@ $pass_entry = get_sql_results("SELECT * FROM data WHERE id=$id");
 $name = $pass_entry[0]['name'];
 $login = decrypt_string($pass_entry[0]['login']);
 $password = $pass_entry[0]['password'];
-$note = $pass_entry[0]['note'];
+$note = decrypt_text($pass_entry[0]['note']);
 $group = $pass_entry[0]['group_id'];
 $i_am_owner = ($owner == get_my_uid());
 

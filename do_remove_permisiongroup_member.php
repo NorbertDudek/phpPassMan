@@ -7,7 +7,7 @@ if (!(am_i_admin())) {
 	header("location: show_permissions_error.php");
 	}
 
-foreach ($_POST['user'] as $uid) {
+foreach (post_array('user') as $uid) {
 	remove_user_from_permisiongroup($gid, $uid);
 	}
 

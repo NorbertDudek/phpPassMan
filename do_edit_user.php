@@ -20,7 +20,14 @@ else {
 	$groupRemove = checkInPOST('groupRemove');
 	$groupSee = checkInPOST('groupSee');
 	$forcePasswordChange = checkInPOST('force_password_change');
-	
+	$email = trim(checkInPOST('email'));
+
+	// Sprawdzamy przed zapisem czegokolwiek, zeby nie zapisac zmian tylko czesciowo
+	if (!is_valid_user_email($email)) {
+		header("location: edit_user.php?uid=$uid&error=email");
+		exit;
+	}
+
 	if ($type == 'local') {
 		if ($new_password != '') {
 			if ($new_password == $confirm_new_password) {
@@ -41,6 +48,8 @@ else {
 		set_must_change_password($uid, $forcePasswordChange == 'on');
 	}
 	
+	set_user_email($uid, $email);
+
 	$accGrant = 0;
 	
 	if ($admin == 'on')

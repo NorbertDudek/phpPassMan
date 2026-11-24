@@ -7,7 +7,7 @@ $description = $_POST['description'];
 $parent = $_POST['parent'];
 
 
-edit_group($gid, $group_name, $description, $parent);
+edit_group($gid, $group_name, $description, $parent, $_POST);
 	
 header("Location: groups.php");
 

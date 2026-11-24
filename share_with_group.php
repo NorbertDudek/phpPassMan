@@ -4,7 +4,7 @@ require_once('header.php');
 $id = $_POST['id'];
 
 // Check permissions
-if (!(get_owner($id) == get_my_uid())) {
+if (!can_share_group($id)) {
 	// We don't have permissions!	?>
 	<p class="bg-danger center-block">ACCESS DENIED</p>
 <?php	}
@@ -19,4 +19,4 @@ else {
 		require_once('resources/confirm_remove_group.php');
 		}
 	}
-?>
+?>

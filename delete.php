@@ -19,7 +19,13 @@ $id = $_GET['id'];
 					<ul>
 						<li><?php echo get_object_name($id); ?>
 					</ul>
-					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"></div>
+					<?php $share_links_count = count(get_active_share_links($id)); if ($share_links_count > 0) { ?>
+					<div class="alert alert-info">
+						<?php printf(_("This password has active share links: %d. Recipients will still see the copy of the entry made when the link was created, until the link expires."), $share_links_count); ?>
+						<div class="checkbox"><label><input type="checkbox" name="revoke_share_links" value="1"> <?php echo _("Also revoke all active share links"); ?></label></div>
+					</div>
+					<?php } ?>
+					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"> <?php echo cancel_button('index.php', "btn-sm"); ?></div>
 				</form>
 			</div>
 		</div>
@@ -27,4 +33,4 @@ $id = $_GET['id'];
 </div>
 
 
-<?php require_once('footer.php'); ?>
+<?php require_once('footer.php'); ?>

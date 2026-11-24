@@ -1,0 +1,23 @@
+﻿<?php
+require_once('header.php');
+
+$id = $_POST['id'];
+
+// Check permissions
+if (!can_share_group($id)) {
+	// We don't have permissions!
+	?>
+	<p class="bg-danger center-block">ACCESS DENIED</p>
+<?php	}
+else {
+	// Permissions are good
+	$action = $_POST['action'];
+
+	if ($action == 'add') {
+		require_once('resources/deny_with_user.php');
+		}
+	if ($action == 'remove') {
+		require_once('resources/confirm_remove_denied_user.php');
+		}
+	}
+?>

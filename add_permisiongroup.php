@@ -8,7 +8,7 @@ require_once('header.php');
 	<div class="col-sm-3">&nbsp;</div>
 	<div class="col-sm-6">
 		<div class="panel panel-primary">
-			<div class="panel-heading"><?php echo _("Add Group"); ?></div>
+			<div class="panel-heading"><?php echo _("Add role"); ?></div>
 			<div class="panel-body">
 				<form action="do_add_permisiongroup.php" method="POST" class="form-horizontal">
 					<div class="form-group">
@@ -21,7 +21,7 @@ require_once('header.php');
 					</div>
 					<div class="form-group">
 						<div class="col-sm-3">&nbsp;</div>
-						<div class="col-sm-6"><input type="submit" class="btn btn-xs btn-primary" value="<?php echo _("Add Group"); ?>"></div>
+						<div class="col-sm-6"><input type="submit" class="btn btn-xs btn-primary" value="<?php echo _("Add role"); ?>"> <?php echo cancel_button('permisiongroups.php', "btn-xs"); ?></div>
 					</div>
 				</form>
 			</div>

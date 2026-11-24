@@ -11,7 +11,7 @@ if (check_login($login, $password)) {
 	}
 else {
 	echo "Fail!";
-	header("Location: login.php?login=unsuccessful&user=$login");
+	header("Location: login.php?login=unsuccessful&user=" . urlencode($login));
 	}
 	
 ?>

@@ -110,14 +110,14 @@ msgstr "Dodaj użytkowników"
 msgid "Remove selected user(s)"
 msgstr "Usuń wybranych użytkowników"
 
-msgid "Shared groups"
-msgstr "Współdzielone grupy"
+msgid "Shared roles"
+msgstr "Współdzielone role"
 
-msgid "Add group(s)"
-msgstr "Dodaj grupy"
+msgid "Add role(s)"
+msgstr "Dodaj role"
 
-msgid "Remove selected group(s)"
-msgstr "Usuń wybrane grupy"
+msgid "Remove selected role(s)"
+msgstr "Usuń wybrane role"
 
 msgid "This will also remove all group membership records and permissions."
 msgstr "Spowoduje to również usunięcie wszystkich rekordów członkostwa w grupie i uprawnień."
@@ -146,17 +146,23 @@ msgstr "Użyj CTRL+Click, aby zaznaczyć wielu użytkowników."
 msgid "Share"
 msgstr "Współdziel"
 
-msgid "Share with group"
-msgstr "Współdziel z grupą"
+msgid "Share with role"
+msgstr "Współdziel z rolą"
 
-msgid "Select a group"
-msgstr "Wybierz grupę"
+msgid "Select a role"
+msgstr "Wybierz rolę"
 
 msgid "Use CTRL+Click to select multiple groups."
 msgstr "Użyj CTRL+Click, aby zaznaczyć wiele grup."
 
-msgid "Users belonging to these groups will no longer be able to view the following object"
-msgstr "Użytkownicy należący do tych grup nie będą już mogli przeglądać następującego obiektu"
+msgid "Click a role to select or deselect it."
+msgstr "Kliknij rolę, aby ją zaznaczyć lub odznaczyć."
+
+msgid "Click a user to select or deselect it."
+msgstr "Kliknij użytkownika, aby go zaznaczyć lub odznaczyć."
+
+msgid "Users with these roles will no longer be able to view the following object"
+msgstr "Użytkownicy z tymi rolami nie będą już mogli przeglądać następującego obiektu"
 
 msgid "Please login"
 msgstr "Zaloguj się"
@@ -275,14 +281,14 @@ msgstr "Usuń"
 msgid "Add New User"
 msgstr "Dodaj nowego użytkownika"
 
-msgid "Add Group"
-msgstr "Dodaj grupę uprawnień"
+msgid "Add role"
+msgstr "Dodaj rolę"
 
 msgid "Description"
 msgstr "Opis"
 
-msgid "Edit Group"
-msgstr "Edytuj grupę uprawnień"
+msgid "Edit role"
+msgstr "Edytuj rolę"
 
 msgid "ID"
 msgstr "ID"
@@ -296,20 +302,20 @@ msgstr "Dodaj członków"
 msgid "Remove Member(s)"
 msgstr "Usuń członków"
 
-msgid "Permision Groups"
-msgstr "Grupy uprawnień"
+msgid "Roles"
+msgstr "Role"
 
-msgid "Permision Group Name"
-msgstr "Nazwa grupy uprawnień"
+msgid "Role name"
+msgstr "Nazwa roli"
 
-msgid "Add New Permision Group"
-msgstr "Dodaj nową grupę uprawnień"
+msgid "Add new role"
+msgstr "Dodaj nową rolę"
 
 msgid "Add Group Member(s)"
 msgstr "Dodaj członków grupy"
 
-msgid "Add Permision Group Member(s)"
-msgstr "Dodaj członków grupy uprawnień"
+msgid "Add users to role"
+msgstr "Dodaj użytkowników do roli"
 
 msgid "Remove Group Member(s)"
 msgstr "Usuń członków grupy"
@@ -317,8 +323,8 @@ msgstr "Usuń członków grupy"
 msgid "Please confirm you would like to remove the following users from this group:"
 msgstr "Potwierdź, że chcesz usunąć następujących użytkowników z tej grupy:"
 
-msgid "Remove Permision Group Member(s)"
-msgstr "Usuń członków grupy uprawnień"
+msgid "Remove users from role"
+msgstr "Usuń użytkowników z roli"
 
 msgid "ACCESS DENIED"
 msgstr "BRAK DOSTĘPU"
@@ -329,6 +335,1164 @@ msgstr "Potwierdź, że chcesz usunąć następującego użytkownika:"
 msgid "This will NOT remove password entries owned by this user."
 msgstr "Nie spowoduje to usunięcia haseł należących do tego użytkownika."
 
-msgid "Please confirm you would like to remove the following permision group:"
-msgstr "Potwierdź, że chcesz usunąć następującą grupę uprawnień:"
+msgid "Please confirm you would like to remove the following role:"
+msgstr "Potwierdź, że chcesz usunąć następującą rolę:"
 
+msgid "Denied users"
+msgstr "Zablokowani użytkownicy"
+
+msgid "Denied roles"
+msgstr "Zablokowane role"
+
+msgid "Deny user(s)"
+msgstr "Zablokuj użytkownika(-ów)"
+
+msgid "Allow selected user(s) again"
+msgstr "Odblokuj wybranych użytkowników"
+
+msgid "Deny role(s)"
+msgstr "Zablokuj role"
+
+msgid "Allow selected role(s) again"
+msgstr "Odblokuj wybrane role"
+
+msgid "Deny access for user"
+msgstr "Zablokuj dostęp dla użytkownika"
+
+msgid "Deny access for role"
+msgstr "Zablokuj dostęp dla roli"
+
+msgid "Deny"
+msgstr "Zablokuj"
+
+msgid "Please confirm you would like to allow access again for the following users"
+msgstr "Potwierdź, że chcesz ponownie zezwolić na dostęp następującym użytkownikom"
+
+msgid "These users will again be able to inherit access to the following group, if it is granted elsewhere"
+msgstr "Ci użytkownicy ponownie będą mogli odziedziczyć dostęp do następującej grupy, jeśli zostanie on przyznany gdzie indziej"
+
+msgid "Please confirm you would like to allow access again for the following role"
+msgstr "Potwierdź, że chcesz ponownie zezwolić na dostęp następującej roli"
+
+msgid "Users with this role will again be able to inherit access to the following group, if it is granted elsewhere"
+msgstr "Użytkownicy z tą rolą ponownie będą mogli odziedziczyć dostęp do następującej grupy, jeśli zostanie on przyznany gdzie indziej"
+
+msgid "Import passwords"
+msgstr "Import haseł"
+
+msgid "You do not have permission to import passwords."
+msgstr "Nie masz uprawnień do importu haseł."
+
+msgid "The file (CSV or Excel .xlsx) must contain the login in the first column and the password in the second column. If the login already exists in the selected group, its password will be replaced; otherwise a new entry will be added."
+msgstr "Plik (CSV lub Excel .xlsx) musi zawierać login w pierwszej kolumnie i hasło w drugiej kolumnie. Jeżeli login istnieje już w wybranej grupie, jego hasło zostanie podmienione; w przeciwnym razie zostanie dodany nowy wpis."
+
+msgid "File"
+msgstr "Plik"
+
+msgid "First row contains column headers"
+msgstr "Pierwszy wiersz zawiera nagłówki kolumn"
+
+msgid "Import"
+msgstr "Importuj"
+
+msgid "You do not have access to the selected group."
+msgstr "Nie masz dostępu do wybranej grupy."
+
+msgid "The file could not be uploaded."
+msgstr "Nie udało się przesłać pliku."
+
+msgid "The Excel file could not be read. Save it as CSV and try again."
+msgstr "Nie udało się odczytać pliku Excel. Zapisz go jako CSV i spróbuj ponownie."
+
+msgid "The file could not be read."
+msgstr "Nie udało się odczytać pliku."
+
+msgid "Unsupported file type. Use a CSV or Excel (.xlsx) file."
+msgstr "Nieobsługiwany typ pliku. Użyj pliku CSV lub Excel (.xlsx)."
+
+msgid "Skipped - empty login"
+msgstr "Pominięto - pusty login"
+
+msgid "Skipped - no permission to edit passwords"
+msgstr "Pominięto - brak uprawnień do edycji haseł"
+
+msgid "Password updated"
+msgstr "Zaktualizowano hasło"
+
+msgid "Added"
+msgstr "Dodane"
+
+msgid "Updated"
+msgstr "Zaktualizowane"
+
+msgid "Skipped"
+msgstr "Pominięte"
+
+msgid "Row"
+msgstr "Wiersz"
+
+msgid "Result"
+msgstr "Wynik"
+
+msgid "Back"
+msgstr "Wstecz"
+
+msgid "Import another file"
+msgstr "Importuj kolejny plik"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Expires"
+msgstr "Wygaśnięcie"
+
+msgid "expired"
+msgstr "wygasło"
+
+msgid "Database migration"
+msgstr "Migracja bazy danych"
+
+msgid "Migration complete. You can delete this file now."
+msgstr "Migracja zakończona. Możesz teraz usunąć ten plik."
+
+msgid "re-encrypt passwords"
+msgstr "ponowne zaszyfrowanie haseł"
+
+msgid "Set a unique $secret_key in resources/config.php before running this migration."
+msgstr "Przed uruchomieniem migracji ustaw unikalny $secret_key w resources/config.php."
+
+msgid "Re-encrypted entries: %d"
+msgstr "Ponownie zaszyfrowane wpisy: %d"
+
+msgid "These entries could not be decrypted and were left unchanged:"
+msgstr "Tych wpisów nie udało się odszyfrować i pozostały bez zmian:"
+
+msgid "Entries still using the old encryption: %d"
+msgstr "Wpisy nadal zaszyfrowane starym sposobem: %d"
+
+msgid "Back up the database before continuing."
+msgstr "Przed kontynuacją wykonaj kopię zapasową bazy danych."
+
+msgid "After the migration, entries can only be decrypted with the current $secret_key - do not change or lose it."
+msgstr "Po migracji wpisy da się odszyfrować tylko obecnym $secret_key - nie zmieniaj go ani nie zgub."
+
+msgid "I have a database backup"
+msgstr "Mam kopię zapasową bazy danych"
+
+msgid "Re-encrypt passwords"
+msgstr "Zaszyfruj hasła ponownie"
+
+msgid "General"
+msgstr "Ogólne"
+
+msgid "History"
+msgstr "Historia"
+
+msgid "Created"
+msgstr "Utworzono"
+
+msgid "Modified"
+msgstr "Zmodyfikowano"
+
+msgid "Password modified"
+msgstr "Zmodyfikowano hasło"
+
+msgid "unknown"
+msgstr "nieznane"
+
+msgid "Send"
+msgstr "Wyślij"
+
+msgid "Send password"
+msgstr "Wyślij hasło"
+
+msgid "Link expires"
+msgstr "Link wygasa"
+
+msgid "Access password"
+msgstr "Hasło dostępu"
+
+msgid "Optional. The recipient must enter it to see the password - pass it on through a different channel than the link."
+msgstr "Opcjonalne. Odbiorca musi je podać, aby zobaczyć hasło - przekaż je innym kanałem niż link."
+
+msgid "Maximum views"
+msgstr "Maksymalna liczba podglądów"
+
+msgid "unlimited"
+msgstr "bez limitu"
+
+msgid "Destruct-on-Open (the link expires after a single view)"
+msgstr "Destruct-on-Open (link wygasa po jednorazowym podglądzie)"
+
+msgid "Additional text"
+msgstr "Dodatkowy tekst"
+
+msgid "The link has been created. Copy it and send it to the recipient - it will not be shown again."
+msgstr "Link został utworzony. Skopiuj go i wyślij odbiorcy - nie zostanie pokazany ponownie."
+
+msgid "Create link"
+msgstr "Utwórz link"
+
+msgid "Close"
+msgstr "Zamknij"
+
+msgid "Copied"
+msgstr "Skopiowano"
+
+msgid "The link could not be created."
+msgstr "Nie udało się utworzyć linku."
+
+msgid "Your session has expired. Please log in again."
+msgstr "Sesja wygasła. Zaloguj się ponownie."
+
+msgid "The expiration date must be in the future."
+msgstr "Data wygaśnięcia musi być w przyszłości."
+
+msgid "The maximum number of views must be a positive number."
+msgstr "Maksymalna liczba podglądów musi być liczbą dodatnią."
+
+msgid "The additional text may be at most %d characters long."
+msgstr "Dodatkowy tekst może mieć najwyżej %d znaków."
+
+msgid "Incorrect password."
+msgstr "Nieprawidłowe hasło."
+
+msgid "Link unavailable"
+msgstr "Link niedostępny"
+
+msgid "This link is invalid, has expired or has reached its view limit."
+msgstr "Link jest nieprawidłowy, wygasł lub wyczerpał limit podglądów."
+
+msgid "A password has been shared with you"
+msgstr "Udostępniono Ci hasło"
+
+msgid "The link will stop working as soon as the password is displayed."
+msgstr "Link przestanie działać zaraz po wyświetleniu hasła."
+
+msgid "Remaining views"
+msgstr "Pozostało podglądów"
+
+msgid "This link is protected. Enter the password you received from the sender"
+msgstr "Link jest chroniony. Podaj hasło otrzymane od nadawcy"
+
+msgid "Show password"
+msgstr "Pokaż hasło"
+
+msgid "Message"
+msgstr "Wiadomość"
+
+msgid "This was the last allowed view - the link is no longer valid. Save the password now if you need it."
+msgstr "To był ostatni dozwolony podgląd - link jest już nieważny. Zapisz hasło teraz, jeśli go potrzebujesz."
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Invalid SMTP server address."
+msgstr "Nieprawidłowy adres serwera SMTP."
+
+msgid "The port must be a number between 1 and 65535."
+msgstr "Port musi być liczbą od 1 do 65535."
+
+msgid "Invalid encryption type."
+msgstr "Nieprawidłowy rodzaj szyfrowania."
+
+msgid "Invalid sender e-mail address."
+msgstr "Nieprawidłowy adres e-mail nadawcy."
+
+msgid "Enter the sender e-mail address."
+msgstr "Podaj adres e-mail nadawcy."
+
+msgid "The sender name cannot contain line breaks."
+msgstr "Nazwa nadawcy nie może zawierać znaków nowej linii."
+
+msgid "Settings have been saved."
+msgstr "Ustawienia zostały zapisane."
+
+msgid "E-mail sending mailbox (SMTP)"
+msgstr "Skrzynka do wysyłania wiadomości e-mail (SMTP)"
+
+msgid "SMTP server"
+msgstr "Serwer SMTP"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Encryption"
+msgstr "Szyfrowanie"
+
+msgid "None"
+msgstr "Brak"
+
+msgid "(unchanged)"
+msgstr "(bez zmian)"
+
+msgid "A password is saved. Leave the field empty to keep it."
+msgstr "Hasło jest zapisane. Pozostaw pole puste, aby go nie zmieniać."
+
+msgid "Remove saved password"
+msgstr "Usuń zapisane hasło"
+
+msgid "Sender e-mail address"
+msgstr "Adres e-mail nadawcy"
+
+msgid "Sender name"
+msgstr "Nazwa nadawcy"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "The SMTP server did not respond in time."
+msgstr "Serwer SMTP nie odpowiedział w wymaganym czasie."
+
+msgid "The SMTP server closed the connection."
+msgstr "Serwer SMTP zamknął połączenie."
+
+msgid "SMTP server error: %s"
+msgstr "Błąd serwera SMTP: %s"
+
+msgid "E-mail sending is not configured. Set the mailbox parameters in Admin -> Settings."
+msgstr "Wysyłanie e-maili nie jest skonfigurowane. Ustaw parametry skrzynki w Admin -> Ustawienia."
+
+msgid "Invalid recipient e-mail address."
+msgstr "Nieprawidłowy adres e-mail odbiorcy."
+
+msgid "Cannot connect to the SMTP server: %s"
+msgstr "Nie można połączyć się z serwerem SMTP: %s"
+
+msgid "Could not establish an encrypted (STARTTLS) connection with the SMTP server."
+msgstr "Nie udało się nawiązać szyfrowanego połączenia (STARTTLS) z serwerem SMTP."
+
+msgid "phpPassMan - test message"
+msgstr "phpPassMan - wiadomość testowa"
+
+msgid "This is a test message. If you are reading it, e-mail sending is configured correctly."
+msgstr "To jest wiadomość testowa. Jeśli ją czytasz, wysyłanie e-maili jest skonfigurowane poprawnie."
+
+msgid "The test message has been sent to %s."
+msgstr "Wiadomość testowa została wysłana na adres %s."
+
+msgid "The test message could not be sent"
+msgstr "Nie udało się wysłać wiadomości testowej"
+
+msgid "Test message"
+msgstr "Wiadomość testowa"
+
+msgid "Sends a test message using the saved settings. Save any changes first."
+msgstr "Wysyła wiadomość testową z użyciem zapisanych ustawień. Najpierw zapisz ewentualne zmiany."
+
+msgid "Recipient e-mail"
+msgstr "E-mail odbiorcy"
+
+msgid "Send test message"
+msgstr "Wyślij wiadomość testową"
+
+msgid "Optional. The link will be sent to this address. The access password is never included in the e-mail."
+msgstr "Opcjonalne. Link zostanie wysłany na ten adres. Hasło dostępu nigdy nie jest dołączane do wiadomości."
+
+msgid "Create link and send"
+msgstr "Utwórz link i wyślij"
+
+msgid "Hello,"
+msgstr "Dzień dobry,"
+
+msgid "%s has shared a password with you."
+msgstr "Użytkownik %s udostępnił Ci hasło."
+
+msgid "To view it, open the link below:"
+msgstr "Aby je zobaczyć, otwórz poniższy link:"
+
+msgid "The link is protected with an access password, which you will receive separately."
+msgstr "Link jest chroniony hasłem dostępu, które otrzymasz osobno."
+
+msgid "The link has been sent to %s."
+msgstr "Link został wysłany na adres %s."
+
+msgid "The link was created, but the e-mail could not be sent"
+msgstr "Link został utworzony, ale nie udało się wysłać wiadomości e-mail"
+
+msgid "No complexity required"
+msgstr "Brak wymagań złożoności"
+
+msgid "Very weak"
+msgstr "Bardzo słabe"
+
+msgid "Weak"
+msgstr "Słabe"
+
+msgid "Medium"
+msgstr "Średnie"
+
+msgid "Strong"
+msgstr "Silne"
+
+msgid "Very strong"
+msgstr "Bardzo silne"
+
+msgid "Password complexity"
+msgstr "Złożoność hasła"
+
+msgid "Allow creating passwords without the required complexity"
+msgstr "Tworzenie bez zachowania złożoności"
+
+msgid "Allow editing passwords without the required complexity"
+msgstr "Edycja bez zachowania złożoności"
+
+msgid "Renewal delay"
+msgstr "Okres odnawiania"
+
+msgid "months"
+msgstr "miesięcy"
+
+msgid "0 = passwords do not have to be renewed. Otherwise a new or changed password gets an expiration date this many months ahead."
+msgstr "0 = hasła nie muszą być odnawiane. W przeciwnym razie nowe lub zmienione hasło otrzymuje datę wygaśnięcia przesuniętą o podaną liczbę miesięcy."
+
+msgid "Icon"
+msgstr "Ikona"
+
+msgid "No icon"
+msgstr "Brak ikony"
+
+msgid "Password strength"
+msgstr "Siła hasła"
+
+msgid "required"
+msgstr "wymagana"
+
+msgid "not enforced"
+msgstr "niewymuszana"
+
+msgid "The password does not meet the complexity required by the selected group."
+msgstr "Hasło nie spełnia wymagań złożoności wybranej grupy."
+
+msgid "Tags"
+msgstr "Tagi"
+
+msgid "Separate tags with commas. Tags are not shown on the list, but the search finds them."
+msgstr "Tagi oddzielaj przecinkami. Tagi nie są widoczne na liście, ale wyszukiwanie je uwzględnia."
+
+msgid "Permissions"
+msgstr "Uprawnienia"
+
+msgid "Users and roles can be shared or denied once the group is saved."
+msgstr "Udostępnianie i blokowanie użytkownikom oraz rolom jest możliwe po zapisaniu grupy."
+
+msgid "Add group and set permissions"
+msgstr "Dodaj grupę i ustaw uprawnienia"
+
+msgid "Folder"
+msgstr "Folder"
+
+msgid "Open folder"
+msgstr "Otwarty folder"
+
+msgid "Briefcase"
+msgstr "Teczka"
+
+msgid "Home"
+msgstr "Dom"
+
+msgid "Globe"
+msgstr "Glob"
+
+msgid "Cloud"
+msgstr "Chmura"
+
+msgid "Disk"
+msgstr "Dysk"
+
+msgid "Server"
+msgstr "Serwer"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Landline phone"
+msgstr "Telefon stacjonarny"
+
+msgid "Mail"
+msgstr "Poczta"
+
+msgid "Lock"
+msgstr "Kłódka"
+
+msgid "Certificate"
+msgstr "Certyfikat"
+
+msgid "Tower"
+msgstr "Wieża"
+
+msgid "Wrench"
+msgstr "Klucz"
+
+msgid "Shopping cart"
+msgstr "Koszyk"
+
+msgid "Credit card"
+msgstr "Karta płatnicza"
+
+msgid "Money"
+msgstr "Pieniądze"
+
+msgid "Printer"
+msgstr "Drukarka"
+
+msgid "Camera"
+msgstr "Aparat"
+
+msgid "Film"
+msgstr "Film"
+
+msgid "Music"
+msgstr "Muzyka"
+
+msgid "Book"
+msgstr "Książka"
+
+msgid "Education"
+msgstr "Edukacja"
+
+msgid "Heart"
+msgstr "Serce"
+
+msgid "Star"
+msgstr "Gwiazdka"
+
+msgid "Flag"
+msgstr "Flaga"
+
+msgid "Tag"
+msgstr "Tag"
+
+msgid "Fire"
+msgstr "Ogień"
+
+msgid "Flash"
+msgstr "Błyskawica"
+
+msgid "Custom fields"
+msgstr "Pola dodatkowe"
+
+msgid "Value"
+msgstr "Wartość"
+
+msgid "Add field"
+msgstr "Dodaj pole"
+
+msgid "No custom fields defined."
+msgstr "Brak zdefiniowanych pól dodatkowych."
+
+msgid "Attachments"
+msgstr "Załączniki"
+
+msgid "No attachments."
+msgstr "Brak załączników."
+
+msgid "Download"
+msgstr "Pobierz"
+
+msgid "Maximum file size"
+msgstr "Maksymalny rozmiar pliku"
+
+msgid "Enter 0 to disable attaching files to passwords."
+msgstr "Wpisz 0, aby wyłączyć dołączanie plików do haseł."
+
+msgid "The PHP configuration (upload_max_filesize, post_max_size) accepts files up to %s; larger values have no effect."
+msgstr "Konfiguracja PHP (upload_max_filesize, post_max_size) przyjmuje pliki do %s; większe wartości nie mają znaczenia."
+
+msgid "The maximum attachment size must be a number between 0 and 1048576 KB."
+msgstr "Maksymalny rozmiar załącznika musi być liczbą od 0 do 1048576 KB."
+
+msgid "Attachments are disabled by the administrator."
+msgstr "Załączniki zostały wyłączone przez administratora."
+
+msgid "The file is too large. The maximum file size is %s."
+msgstr "Plik jest za duży. Maksymalny rozmiar pliku to %s."
+
+msgid "No changes have been saved."
+msgstr "Nie zapisano żadnych zmian."
+
+msgid "Maximum file size: %s. Files are saved together with the form."
+msgstr "Maksymalny rozmiar pliku: %s. Pliki zostaną zapisane razem z formularzem."
+
+msgid "Add files"
+msgstr "Dodaj pliki"
+
+msgid "Drag files here or click to choose them from disk."
+msgstr "Przeciągnij pliki tutaj lub kliknij, aby wybrać je z dysku."
+
+msgid "Maximum file size: %s."
+msgstr "Maksymalny rozmiar pliku: %s."
+
+msgid "new"
+msgstr "nowy"
+
+msgid "The selected files are too large to be sent together. Save the form and add the remaining files afterwards."
+msgstr "Wybrane pliki są razem za duże, by wysłać je jednocześnie. Zapisz formularz i dodaj pozostałe pliki później."
+
+msgid "Advanced"
+msgstr "Zaawansowane"
+
+msgid "Opened for editing"
+msgstr "Otwarto do edycji"
+
+msgid "Password viewed"
+msgstr "Podgląd hasła"
+
+msgid "Password copied"
+msgstr "Skopiowano hasło"
+
+msgid "User name copied"
+msgstr "Skopiowano nazwę użytkownika"
+
+msgid "Custom field copied"
+msgstr "Skopiowano pole dodatkowe"
+
+msgid "Attachment downloaded"
+msgstr "Pobrano załącznik"
+
+msgid "Share link created"
+msgstr "Utworzono link udostępniający"
+
+msgid "Viewed via share link"
+msgstr "Podgląd przez link udostępniający"
+
+msgid "Changed"
+msgstr "Zmieniono"
+
+msgid "Attachments added"
+msgstr "Dodane załączniki"
+
+msgid "Attachments removed"
+msgstr "Usunięte załączniki"
+
+msgid "Recipient"
+msgstr "Odbiorca"
+
+msgid "Full history"
+msgstr "Pełna historia"
+
+msgid "All events"
+msgstr "Wszystkie zdarzenia"
+
+msgid "Access to data (views, copies, downloads)"
+msgstr "Dostęp do danych (podglądy, kopiowanie, pobrania)"
+
+msgid "Changes"
+msgstr "Zmiany"
+
+msgid "No events recorded yet."
+msgstr "Nie zarejestrowano jeszcze żadnych zdarzeń."
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Event"
+msgstr "Zdarzenie"
+
+msgid "Details"
+msgstr "Szczegóły"
+
+msgid "IP address"
+msgstr "Adres IP"
+
+msgid "anonymous"
+msgstr "anonimowy"
+
+msgid "Filter"
+msgstr "Filtr"
+
+msgid "Items per page"
+msgstr "Pozycji na stronie"
+
+msgid "%d per page"
+msgstr "%d na stronie"
+
+msgid "No events match the selected filter."
+msgstr "Żadne zdarzenie nie pasuje do wybranego filtra."
+
+msgid "Items %d-%d of %d"
+msgstr "Pozycje %d–%d z %d"
+
+msgid "Previous"
+msgstr "Poprzednia"
+
+msgid "Next"
+msgstr "Następna"
+
+msgid "Deleted"
+msgstr "Usunięto"
+
+msgid "deleted"
+msgstr "usunięte"
+
+msgid "Audit log"
+msgstr "Dziennik audytu"
+
+msgid "Keep history for"
+msgstr "Przechowuj historię przez"
+
+msgid "Password history is kept also after the password is deleted. Older events are removed automatically. Enter 0 to keep the history forever."
+msgstr "Historia hasła jest przechowywana także po jego usunięciu. Starsze zdarzenia są usuwane automatycznie. Wpisz 0, aby przechowywać historię bezterminowo."
+
+msgid "The history retention period must be a number of months between 0 and 1200."
+msgstr "Okres przechowywania historii musi być liczbą miesięcy od 0 do 1200."
+
+msgid "Password name or user"
+msgstr "Nazwa hasła lub użytkownik"
+
+msgid "Export to CSV"
+msgstr "Eksport do CSV"
+
+msgid "Password ID"
+msgstr "ID hasła"
+
+msgid "yes"
+msgstr "tak"
+
+msgid "History of all passwords, including deleted ones: who and when created, changed, viewed or copied a password, downloaded attachments and shared links."
+msgstr "Historia wszystkich haseł, również usuniętych: kto i kiedy utworzył, zmienił, podglądał lub kopiował hasło, pobierał załączniki i udostępniał linki."
+
+msgid "Events older than %d months are removed automatically."
+msgstr "Zdarzenia starsze niż %d mies. są usuwane automatycznie."
+
+msgid "Events are kept forever."
+msgstr "Zdarzenia są przechowywane bezterminowo."
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Invalid e-mail address."
+msgstr "Niepoprawny adres e-mail."
+
+msgid "Upgraded MD5 password hashes: %d"
+msgstr "Zaktualizowane skróty haseł MD5: %d"
+
+msgid "Hash algorithm: %s"
+msgstr "Algorytm skrótu: %s"
+
+msgid "The OpenSSL extension on this server does not support AES-256-GCM."
+msgstr "Rozszerzenie OpenSSL na tym serwerze nie obsługuje AES-256-GCM."
+
+msgid "Re-encrypted records: %d"
+msgstr "Przeszyfrowane rekordy: %d"
+
+msgid "These records could not be decrypted and were left unchanged:"
+msgstr "Tych rekordów nie udało się odszyfrować i pozostały bez zmian:"
+
+msgid "Records still using older encryption: %d"
+msgstr "Rekordy nadal zaszyfrowane starszą metodą: %d"
+
+msgid "Re-encrypt data"
+msgstr "Przeszyfruj dane"
+
+msgid "Generation method"
+msgstr "Sposób generowania"
+
+msgid "Random"
+msgstr "Losowe znaki"
+
+msgid "Passphrase"
+msgstr "Fraza ze słów"
+
+msgid "Number of words"
+msgstr "Liczba słów"
+
+msgid "Word separator"
+msgstr "Separator słów"
+
+msgid "Hyphen"
+msgstr "Myślnik"
+
+msgid "Dot"
+msgstr "Kropka"
+
+msgid "Underscore"
+msgstr "Podkreślenie"
+
+msgid "Space"
+msgstr "Spacja"
+
+msgid "Capitalize words"
+msgstr "Słowa wielką literą"
+
+msgid "Add a number"
+msgstr "Dodaj cyfrę"
+
+msgid "Options"
+msgstr "Opcje"
+
+msgid "Melodic"
+msgstr "Melodyjne"
+
+msgid "An easy-to-say password built from syllables."
+msgstr "Hasło złożone z sylab, łatwe do wymówienia."
+
+msgid "Custom field names"
+msgstr "Nazwy pól dodatkowych"
+
+msgid "Attachment names"
+msgstr "Nazwy załączników"
+
+msgid "History details"
+msgstr "Szczegóły historii"
+
+msgid "encrypt notes, names and history"
+msgstr "szyfrowanie notatek, nazw i historii"
+
+msgid "Encrypted records: %d"
+msgstr "Zaszyfrowane rekordy: %d"
+
+msgid "These records could not be encrypted and were left unchanged:"
+msgstr "Tych rekordów nie udało się zaszyfrować i pozostały bez zmian:"
+
+msgid "Records still stored unencrypted: %d"
+msgstr "Rekordy nadal zapisane bez szyfrowania: %d"
+
+msgid "Encrypt data"
+msgstr "Zaszyfruj dane"
+
+msgid "Share links"
+msgstr "Udostępnienia"
+
+msgid "A revoked link stops working immediately, even if it has not expired yet."
+msgstr "Unieważniony link przestaje działać od razu, nawet jeśli jeszcze nie wygasł."
+
+msgid "Revoke this link"
+msgstr "Unieważnij ten link"
+
+msgid "Revoke this link? It will stop working immediately."
+msgstr "Unieważnić ten link? Przestanie działać od razu."
+
+msgid "Link revoked"
+msgstr "Link unieważniony"
+
+msgid "The link could not be revoked."
+msgstr "Nie udało się unieważnić linku."
+
+msgid "There are no active share links for this password."
+msgstr "To hasło nie ma aktywnych linków udostępniania."
+
+msgid "Created by"
+msgstr "Utworzył"
+
+msgid "Views"
+msgstr "Wyświetlenia"
+
+msgid "Protected with an access password"
+msgstr "Chroniony hasłem dostępu"
+
+msgid "One-time"
+msgstr "Jednorazowy"
+
+msgid "Revoke"
+msgstr "Unieważnij"
+
+msgid "Share link revoked"
+msgstr "Unieważniono link udostępniania"
+
+msgid "This password has active share links: %d. Recipients will still see the copy of the entry made when the link was created, until the link expires."
+msgstr "To hasło ma aktywne linki udostępniania: %d. Do czasu wygaśnięcia linków odbiorcy nadal zobaczą kopię wpisu z chwili utworzenia linku."
+
+msgid "Also revoke all active share links"
+msgstr "Unieważnij też wszystkie aktywne linki udostępniania"
+
+msgid "The recipient will see a copy of this entry as it is now. Later changes or deleting the entry will not affect the link."
+msgstr "Odbiorca zobaczy kopię wpisu w obecnej postaci. Późniejsze zmiany ani usunięcie wpisu nie wpłyną na link."
+
+msgid "The form has expired or was sent from another site. Go back, refresh the page and try again."
+msgstr "Formularz wygasł albo został wysłany z innej strony. Wróć, odśwież stronę i spróbuj ponownie."
+
+msgid "This will also remove all role assignments and permissions."
+msgstr "Spowoduje to również usunięcie wszystkich przypisań użytkowników do tej roli i jej uprawnień."
+
+msgid "Please confirm you would like to remove the following users from this role:"
+msgstr "Potwierdź, że chcesz usunąć następujących użytkowników z tej roli:"
+
+msgid "Please confirm you would like to remove the following role"
+msgstr "Potwierdź chęć usunięcia następującej roli"
+
+msgid "Backup"
+msgstr "Kopia zapasowa"
+
+msgid "Create backup"
+msgstr "Utwórz kopię"
+
+msgid "Next automatic backup"
+msgstr "Następna automatyczna kopia"
+
+msgid "Nothing is scheduled"
+msgstr "Nic nie zostało zaplanowane"
+
+msgid "Soon"
+msgstr "Wkrótce"
+
+msgid "Current time"
+msgstr "Bieżący czas"
+
+msgid "The backup contains the whole database: passwords, groups, users, roles, history and settings. It is encrypted with the secret key from config.php, the same way as logins and passwords. It can be restored only with the same key."
+msgstr "Kopia zawiera całą bazę danych: hasła, grupy, użytkowników, role, historię i ustawienia. Jest zaszyfrowana kluczem z config.php, tak samo jak loginy i hasła. Można ją przywrócić tylko z tym samym kluczem."
+
+msgid "Existing backups"
+msgstr "Istniejące kopie"
+
+msgid "There are no backups yet."
+msgstr "Nie ma jeszcze żadnych kopii."
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "Restore"
+msgstr "Przywróć"
+
+msgid "Delete this backup? This cannot be undone."
+msgstr "Usunąć tę kopię? Tej operacji nie można cofnąć."
+
+msgid "Automatic backups"
+msgstr "Automatyczne kopie"
+
+msgid "Create a backup"
+msgstr "Twórz kopię"
+
+msgid "Automatic backups are created while users work with the application. To create them on time also when nobody is logged in, run php backup_cron.php regularly from cron (e.g. every 15 minutes)."
+msgstr "Automatyczne kopie powstają podczas pracy użytkowników z aplikacją. Aby powstawały na czas również wtedy, gdy nikt nie jest zalogowany, uruchamiaj regularnie z crona polecenie php backup_cron.php (np. co 15 minut)."
+
+msgid "Keep the latest"
+msgstr "Przechowuj ostatnie"
+
+msgid "automatic backups"
+msgstr "automatycznych kopii"
+
+msgid "Older automatic backups are deleted. Manual and uploaded backups are not counted and are kept until you delete them."
+msgstr "Starsze automatyczne kopie są usuwane. Kopie ręczne i wgrane nie są wliczane i zostają, dopóki ich nie usuniesz."
+
+msgid "Upload a backup file"
+msgstr "Wgraj plik kopii"
+
+msgid "Backup file"
+msgstr "Plik kopii"
+
+msgid "The file is added to the list of backups. It must have been created by this application with the same secret key."
+msgstr "Plik zostanie dodany do listy kopii. Musi być utworzony przez tę aplikację z tym samym kluczem."
+
+msgid "Upload"
+msgstr "Wgraj"
+
+msgid "Manual"
+msgstr "Ręcznie"
+
+msgid "Every 2 hours"
+msgstr "Co 2 godziny"
+
+msgid "Every 4 hours"
+msgstr "Co 4 godziny"
+
+msgid "Every 8 hours"
+msgstr "Co 8 godzin"
+
+msgid "Every 12 hours"
+msgstr "Co 12 godzin"
+
+msgid "Daily"
+msgstr "Codziennie"
+
+msgid "Weekly"
+msgstr "Co tydzień"
+
+msgid "Every 2 weeks"
+msgstr "Co 2 tygodnie"
+
+msgid "Monthly"
+msgstr "Co miesiąc"
+
+msgid "Automatic backup"
+msgstr "Automatyczna"
+
+msgid "Manual backup"
+msgstr "Ręczna"
+
+msgid "Uploaded backup"
+msgstr "Wgrana"
+
+msgid "Before restore"
+msgstr "Przed przywróceniem"
+
+msgid "Invalid backup schedule."
+msgstr "Nieprawidłowy harmonogram kopii."
+
+#, c-format
+msgid "The number of automatic backups to keep must be a number between 1 and %d."
+msgstr "Liczba przechowywanych automatycznych kopii musi być liczbą od 1 do %d."
+
+msgid "The last automatic backup failed"
+msgstr "Ostatnia automatyczna kopia nie powiodła się"
+
+msgid "Restore backup"
+msgstr "Przywracanie kopii"
+
+msgid "The whole database will be replaced with the content of this backup. Passwords, groups, users and settings added or changed after the backup was created will be lost."
+msgstr "Cała baza danych zostanie zastąpiona zawartością tej kopii. Hasła, grupy, użytkownicy i ustawienia dodane lub zmienione po utworzeniu kopii zostaną utracone."
+
+msgid "Before restoring, a backup of the current state is created automatically, so the change can be undone."
+msgstr "Przed przywróceniem automatycznie tworzona jest kopia bieżącego stanu, więc zmianę można cofnąć."
+
+msgid "All users, including you, will be logged out."
+msgstr "Wszyscy użytkownicy, również Ty, zostaną wylogowani."
+
+msgid "I understand that the current data will be replaced"
+msgstr "Rozumiem, że bieżące dane zostaną zastąpione"
+
+msgid "Select a backup file."
+msgstr "Wybierz plik kopii."
+
+msgid "The backup could not be created."
+msgstr "Nie udało się utworzyć kopii."
+
+msgid "The backup could not be restored. The database was not changed."
+msgstr "Nie udało się przywrócić kopii. Baza danych nie została zmieniona."
+
+msgid "The backup file cannot be decrypted. It was created with a different secret key or it is damaged."
+msgstr "Nie można odszyfrować pliku kopii. Został utworzony z innym kluczem albo jest uszkodzony."
+
+msgid "The backup file could not be saved in the backup folder."
+msgstr "Nie udało się zapisać pliku kopii w folderze kopii."
+
+msgid "The backup file does not exist."
+msgstr "Plik kopii nie istnieje."
+
+msgid "The backup file has been uploaded."
+msgstr "Plik kopii został wgrany."
+
+msgid "The backup file is damaged."
+msgstr "Plik kopii jest uszkodzony."
+
+msgid "The backup file was created by an unsupported version of the application."
+msgstr "Plik kopii został utworzony przez nieobsługiwaną wersję aplikacji."
+
+msgid "The backup folder does not exist and cannot be created, or it is not writable."
+msgstr "Folder kopii nie istnieje i nie można go utworzyć albo nie ma do niego prawa zapisu."
+
+msgid "The backup has been created."
+msgstr "Kopia została utworzona."
+
+msgid "The backup has been deleted."
+msgstr "Kopia została usunięta."
+
+msgid "The backup has been restored. Log in again."
+msgstr "Kopia została przywrócona. Zaloguj się ponownie."
+
+#, c-format
+msgid "The file is too large. Maximum file size: %s."
+msgstr "Plik jest za duży. Maksymalny rozmiar pliku: %s."
+
+msgid "This is not a phpMyPassword backup file."
+msgstr "To nie jest plik kopii phpMyPassword."
+
+msgid "The $secret_key is missing in resources/config.php and the file is not writable. Set $secret_key manually or allow writing to the file."
+msgstr "Brak $secret_key w resources/config.php, a pliku nie można zapisać. Ustaw $secret_key ręcznie albo nadaj prawo zapisu do pliku."
+
+msgid "A login link can only be sent to a local user."
+msgstr "Link logowania można wysłać tylko użytkownikowi lokalnemu."
+
+msgid "The user has no e-mail address."
+msgstr "Użytkownik nie ma adresu e-mail."
+
+msgid "Use the link below to log in to phpPassMan and set your password:"
+msgstr "Użyj poniższego linku, aby zalogować się do phpPassMan i ustawić swoje hasło:"
+
+msgid "The link can be used only once."
+msgstr "Link można użyć tylko raz."
+
+msgid "Log in and set your password"
+msgstr "Zaloguj się i ustaw hasło"
+
+#, c-format
+msgid "A login link has been sent to %s."
+msgstr "Link logowania został wysłany na adres %s."
+
+msgid "The login link could not be sent"
+msgstr "Nie udało się wysłać linku logowania"
+
+#, c-format
+msgid "Send a one-time login link to %s? Previously sent links will stop working."
+msgstr "Wysłać jednorazowy link logowania na adres %s? Wcześniej wysłane linki przestaną działać."
+
+msgid "Sends the user a one-time link to log in and set a password."
+msgstr "Wysyła użytkownikowi jednorazowy link do zalogowania się i ustawienia hasła."
+
+msgid "Send login link"
+msgstr "Wyślij link logowania"
+
+msgid "Login link"
+msgstr "Link logowania"
+
+#, c-format
+msgid "The user receives an e-mail with a link to log in and set a new password. The link works once and expires after %d hours."
+msgstr "Użytkownik otrzyma e-mail z linkiem do zalogowania się i ustawienia nowego hasła. Link działa jednorazowo i wygasa po %d godzinach."
+
+msgid "Set your password"
+msgstr "Ustaw swoje hasło"
+
+msgid "This link is invalid, has expired or has already been used."
+msgstr "Ten link jest nieprawidłowy, wygasł albo został już użyty."
+
+msgid "Set a new password to log in. The link works only once."
+msgstr "Ustaw nowe hasło, aby się zalogować. Link działa tylko raz."
+
+msgid "Set password and log in"
+msgstr "Ustaw hasło i zaloguj się"
+
+msgid "To send a login link, enter the user's e-mail address."
+msgstr "Aby wysłać link logowania, podaj adres e-mail użytkownika."
+
+msgid "Please enter a password or choose to send a login link."
+msgstr "Podaj hasło albo wybierz wysłanie linku logowania."
+
+msgid "Send a login link instead of setting a password"
+msgstr "Wyślij link logowania zamiast ustawiać hasło"
+
+#, c-format
+msgid "The user receives an e-mail with a one-time link to set their own password. The link expires after %d hours."
+msgstr "Użytkownik otrzyma e-mail z jednorazowym linkiem do ustawienia własnego hasła. Link wygasa po %d godzinach."
+
+msgid "The user was created, but the login link could not be sent"
+msgstr "Użytkownik został utworzony, ale nie udało się wysłać linku logowania"
+
+msgid "Someone (probably you) asked to reset the password for your phpPassMan account. Use the link below to set a new password:"
+msgstr "Ktoś (prawdopodobnie Ty) poprosił o zresetowanie hasła do Twojego konta w phpPassMan. Użyj poniższego linku, aby ustawić nowe hasło:"
+
+msgid "If you did not ask for this, ignore this message - your current password stays unchanged."
+msgstr "Jeśli to nie Ty, zignoruj tę wiadomość - Twoje obecne hasło pozostaje bez zmian."
+
+msgid "Reset your password"
+msgstr "Zresetuj hasło"
+
+msgid "Forgot your password?"
+msgstr "Zapomniałeś hasła?"
+
+msgid "Password reset by e-mail is not available. Contact the administrator."
+msgstr "Resetowanie hasła przez e-mail jest niedostępne. Skontaktuj się z administratorem."
+
+#, c-format
+msgid "If an account with this user name or e-mail address exists, we have sent a link to set a new password. The link expires after %d hour(s)."
+msgstr "Jeśli istnieje konto o tej nazwie użytkownika lub tym adresie e-mail, wysłaliśmy na nie link do ustawienia nowego hasła. Link wygasa po %d godz."
+
+msgid "Enter your user name or e-mail address. We will send you a link to set a new password."
+msgstr "Podaj nazwę użytkownika albo adres e-mail. Wyślemy Ci link do ustawienia nowego hasła."
+
+msgid "User name or e-mail"
+msgstr "Nazwa użytkownika lub e-mail"
+
+msgid "Send link"
+msgstr "Wyślij link"
+
+msgid "Back to login"
+msgstr "Powrót do logowania"
+
+msgid "Send a new link"
+msgstr "Wyślij nowy link"
+
+msgid "No users were selected for removal."
+msgstr "Nie zaznaczono żadnych użytkowników do usunięcia."
+
+msgid "No roles were selected for removal."
+msgstr "Nie zaznaczono żadnych ról do usunięcia."

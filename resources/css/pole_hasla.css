@@ -1,0 +1,5 @@
+/* Pole hasła jako type="text" maskowane kropkami - przeglądarka nie proponuje wtedy zapisania hasła */
+.pole-hasla-ukryte {
+	-webkit-text-security: disc;
+	text-security: disc;
+}

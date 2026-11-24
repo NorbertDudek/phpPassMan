@@ -7,15 +7,25 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading"><?php echo _("Add Password"); ?></div>
 			<div class="panel-body">
-				<form action="do_add.php" class="form-horizontal" method="POST">
-
+<?php if (isset($_GET['error']) && $_GET['error'] == 'complexity') { ?>
+				<div class="alert alert-danger"><?php echo _("The password does not meet the complexity required by the selected group."); ?></div>
+<?php } elseif (isset($_GET['error']) && attachment_error_message($_GET['error']) !== '') { ?>
+				<div class="alert alert-danger"><?php echo htmlspecialchars(attachment_error_message($_GET['error'])); ?> <?php echo _("No changes have been saved."); ?></div>
+<?php } ?>
+				<form action="do_add.php" class="form-horizontal" method="POST" id="password_form" enctype="multipart/form-data">
+					<ul class="nav nav-tabs" role="tablist" style="margin-bottom:15px;">
+						<li role="presentation" class="active"><a href="#tab-general" aria-controls="tab-general" role="tab" data-toggle="tab"><?php echo _("General"); ?></a></li>
+						<li role="presentation"><a href="#tab-custom-fields" aria-controls="tab-custom-fields" role="tab" data-toggle="tab"><?php echo _("Advanced"); ?></a></li>
+					</ul>
+					<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="tab-general">
 					<div class="form-group">
 						<label for="name" class="col-sm-4 control-label"><?php echo _("Name"); ?>:</label>
 						<div class="col-sm-8"><input type="text" class="form-control" name="name" maxlength="256"></div>
 					</div>
 					<div class="form-group">
 						<label for="group" class="col-sm-4 control-label"><?php echo _("Group"); ?>:</label>
-						<div class="col-sm-8"><select class="form-control" name="group">
+						<div class="col-sm-8"><select class="form-control" name="group" id="group_select">
 						<?php
 							echo get_group_options(0, $gid);
 						?>
@@ -29,7 +39,7 @@
 						<label for="password" class="col-sm-4 control-label"><?php echo _("Password"); ?>:</label>
 						<div class="col-sm-8" >
                             <span class="col-sm-9" style="padding-left: 0px;">
-                                <input id="password" type="password" class="form-control" name="password" maxlength="256">
+                                <input id="password" type="text" class="form-control pole-hasla-ukryte" name="password" maxlength="256" autocomplete="off" spellcheck="false" autocapitalize="off" autocorrect="off">
                             </span>
                             <a href="#" class="col-sm-1 btn btn-sm" role="button" id="showpassword"><span class="glyphicon glyphicon-eye-open"></span></a>
                             <a href="#" class="col-sm-1 btn btn-sm" role="button" id="genpassword"><span class="glyphicon glyphicon-random"></span></span></a>
@@ -37,129 +47,93 @@
                         </div>
 					</div>
 					<div class="form-group">
+						<div class="col-sm-4">&nbsp;</div>
+						<div class="col-sm-8" id="password_strength"></div>
+					</div>
+					<div class="form-group">
+						<label for="url" class="col-sm-4 control-label"><?php echo _("URL"); ?>:</label>
+						<div class="col-sm-8"><input type="text" class="form-control" name="url" id="url" maxlength="1024" placeholder="https://"></div>
+					</div>
+					<div class="form-group">
 						<label for="notes" class="col-sm-4 control-label"><?php echo _("Notes"); ?>:</label>
 						<div class="col-sm-8"><textarea name="note" class="form-control" rows="4" cols="40" maxlength="1024"></textarea></div>
 					</div>
 					<div class="form-group">
+						<label for="tags" class="col-sm-4 control-label"><?php echo _("Tags"); ?>:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="tags" id="tags" maxlength="1024">
+							<span class="help-block"><?php echo _("Separate tags with commas. Tags are not shown on the list, but the search finds them."); ?></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="expires" class="col-sm-4 control-label"><?php echo _("Expires"); ?>:</label>
+						<div class="col-sm-8"><input type="datetime-local" class="form-control" name="expires" id="expires"></div>
+					</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="tab-custom-fields">
+					<?php
+						$custom_fields = array();
+						$attachments = array();
+						include('resources/custom_fields_editor.php');
+					?>
+					</div>
+					</div>
+					<div class="form-group">
 						<div class="col-sm-4">&nbsp;</div>
-						<div class="col-sm-8"><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Add"); ?>"></div>
+						<div class="col-sm-8"><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Add"); ?>"> <?php echo cancel_button('index.php', "btn-sm"); ?></div>
 					</div>
 
 				</form>
 
-<!-- Modal generatora hasla -->
-<div class="modal fade" id="genPasswordModal" tabindex="-1" role="dialog" aria-labelledby="genPasswordModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="genPasswordModalLabel"><?php echo _("Generate password"); ?></h4>
-      </div>
-      <div class="modal-body">
-        <div id="genPasswordOptions">
-        <div class="form-group">
-          <label for="genLength"><?php echo _("Password length"); ?></label>
-          <input type="number" class="form-control" id="genLength" min="1" max="256" value="12">
-        </div>
-        <div class="form-group">
-          <label for="genDigits"><?php echo _("Number of digits"); ?></label>
-          <input type="number" class="form-control" id="genDigits" min="0" value="1">
-        </div>
-        <div class="form-group">
-          <label for="genSpecial"><?php echo _("Number of special characters"); ?></label>
-          <input type="number" class="form-control" id="genSpecial" min="0" value="1">
-        </div>
-        </div>
-        <div id="genPasswordResult" style="display:none;">
-        <div class="form-group">
-          <label for="genResultValue"><?php echo _("Generated password"); ?></label>
-          <input type="text" class="form-control" id="genResultValue" readonly>
-        </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div id="genPasswordFooterOptions">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _("Cancel"); ?></button>
-        <button type="button" class="btn btn-primary" id="genPasswordSubmit"><?php echo _("Generate"); ?></button>
-        </div>
-        <div id="genPasswordFooterResult" style="display:none;">
-        <button type="button" class="btn btn-default" id="genPasswordCancelResult"><?php echo _("Cancel"); ?></button>
-        <button type="button" class="btn btn-default" id="genPasswordRegenerate"><?php echo _("Generate again"); ?></button>
-        <button type="button" class="btn btn-primary" id="genPasswordAccept"><?php echo _("Accept"); ?></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<?php include('resources/password_generator.php'); ?>
 
 
 <script>
+initFiltrowalnySelect(document.getElementById('group_select'));
+
+var politykiGrup = <?php echo json_encode(get_group_policies(), JSON_FORCE_OBJECT); ?>;
+
+initZlozonoscHasla({
+  haslo: document.getElementById('password'),
+  grupa: document.getElementById('group_select'),
+  formularz: document.getElementById('password_form'),
+  wskaznik: document.getElementById('password_strength'),
+  polityki: politykiGrup,
+  poziomy: <?php $poziomy = password_complexity_levels(); $poziomy[0] = _("Very weak"); echo json_encode(array_values($poziomy), JSON_UNESCAPED_UNICODE); ?>,
+  tryb: 'create',
+  napisy: {
+    sila: <?php echo json_encode(_("Password strength"), JSON_UNESCAPED_UNICODE); ?>,
+    wymagana: <?php echo json_encode(_("required"), JSON_UNESCAPED_UNICODE); ?>,
+    zaMalo: <?php echo json_encode(_("The password does not meet the complexity required by the selected group."), JSON_UNESCAPED_UNICODE); ?>,
+    bezWymagan: <?php echo json_encode(_("not enforced"), JSON_UNESCAPED_UNICODE); ?>
+  }
+});
+
+// Okres odnawiania grupy: puste pole "Wygasa" wypelniamy data za N miesiecy (do czasu recznej zmiany)
+(function() {
+  var grupa = document.getElementById('group_select');
+  var wygasa = document.getElementById('expires');
+  var autoWypelnione = false;
+  function dwieCyfry(n) { return (n < 10 ? '0' : '') + n; }
+  function ustawWygasanie() {
+    if (wygasa.value !== '' && !autoWypelnione) return;
+    var p = politykiGrup[grupa.value];
+    if (!p || p.renewal_delay <= 0) {
+      if (autoWypelnione) { wygasa.value = ''; autoWypelnione = false; }
+      return;
+    }
+    var d = new Date();
+    d.setMonth(d.getMonth() + p.renewal_delay);
+    wygasa.value = d.getFullYear() + '-' + dwieCyfry(d.getMonth() + 1) + '-' + dwieCyfry(d.getDate()) + 'T' + dwieCyfry(d.getHours()) + ':' + dwieCyfry(d.getMinutes());
+    autoWypelnione = true;
+  }
+  wygasa.addEventListener('input', function() { autoWypelnione = false; });
+  grupa.addEventListener('change', ustawWygasanie);
+  ustawWygasanie();
+})();
+
 document.getElementById('showpassword').addEventListener('click', function() {
-  var pole = document.getElementById('password');
-  if (pole.type === "password") {
-    pole.type = "text";
-  } else {
-    pole.type = "password";
-  }
-});
-
-function generatePasswordFromSyllables(length, digits, special) {
-  return fetch('/genpassword.php?length=' + encodeURIComponent(length) + '&digits=' + encodeURIComponent(digits) + '&special=' + encodeURIComponent(special))
-    .then(response => {
-      if (!response.ok) throw new Error('Blad sieci');
-      return response.text();
-    })
-    .catch(error => {
-      console.error('Blad pobierania:', error);
-    });
-}
-
-function genPasswordShowOptions() {
-  document.getElementById('genPasswordOptions').style.display = '';
-  document.getElementById('genPasswordResult').style.display = 'none';
-  document.getElementById('genPasswordFooterOptions').style.display = '';
-  document.getElementById('genPasswordFooterResult').style.display = 'none';
-}
-
-function genPasswordRequestAndShow() {
-  var length = parseInt(document.getElementById('genLength').value, 10) || 12;
-  var digits = parseInt(document.getElementById('genDigits').value, 10) || 0;
-  var special = parseInt(document.getElementById('genSpecial').value, 10) || 0;
-  generatePasswordFromSyllables(length, digits, special).then(function(pwd) {
-    if (typeof pwd === 'undefined') return;
-    document.getElementById('genResultValue').value = pwd;
-    document.getElementById('genPasswordOptions').style.display = 'none';
-    document.getElementById('genPasswordResult').style.display = '';
-    document.getElementById('genPasswordFooterOptions').style.display = 'none';
-    document.getElementById('genPasswordFooterResult').style.display = '';
-  });
-}
-
-document.getElementById('genpassword').addEventListener('click', function(e) {
-  e.preventDefault();
-  genPasswordShowOptions();
-  $('#genPasswordModal').modal('show');
-});
-
-document.getElementById('genPasswordSubmit').addEventListener('click', function() {
-  genPasswordRequestAndShow();
-});
-
-document.getElementById('genPasswordRegenerate').addEventListener('click', function() {
-  genPasswordRequestAndShow();
-});
-
-document.getElementById('genPasswordAccept').addEventListener('click', function() {
-  var element = document.getElementById('password');
-  element.value = document.getElementById('genResultValue').value;
-  if (element.type === "password") {
-    element.type = "text";
-  }
-  $('#genPasswordModal').modal('hide');
-});
-
-document.getElementById('genPasswordCancelResult').addEventListener('click', function() {
-  $('#genPasswordModal').modal('hide');
+  document.getElementById('password').classList.toggle('pole-hasla-ukryte');
 });
 
 document.getElementById('copytocclip').addEventListener('click', function() {
@@ -169,4 +143,4 @@ document.getElementById('copytocclip').addEventListener('click', function() {
 
 </script>
 
-<?php require_once('footer.php'); ?>
+<?php require_once('footer.php'); ?>

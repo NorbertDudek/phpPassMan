@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require_once('header.php');
 include('resources/config.php');
 
@@ -40,14 +40,17 @@ if ($require_https == true) {
 					<div class="panel-body">
 						<?php 
                             if ((isset($_GET['login'])) and ($_GET['login'] == "unsuccessful")) {
-							 $user = $_GET['user']; ?>
+							 $user = isset($_GET['user']) ? (string)$_GET['user'] : ''; ?>
 							<div class="alert alert-danger">
-                            <?php echo str_replace("{name}", $user, _("Login for user {name} was unsuccessful. Username or password incorrect.")); ?>
+                            <?php echo str_replace("{name}", htmlspecialchars($user), _("Login for user {name} was unsuccessful. Username or password incorrect.")); ?>
                             
                             
                             
                             
                             </div>
+						<?php } ?>
+						<?php if (isset($_GET['restored'])) { ?>
+							<div class="alert alert-success"><?php echo _("The backup has been restored. Log in again."); ?></div>
 						<?php } ?>
 
 						<form method="POST" action="do_login.php" class="form-horizontal">
@@ -65,9 +68,16 @@ if ($require_https == true) {
 							</div>
 							<div class="form-group">
 								<div class="col-sm-4 col-sm-offset-4">
-									<button type="submit" class="btn btn-primary"><?php echo _("Login"); ?></input>
+									<button type="submit" class="btn btn-primary"><?php echo _("Login"); ?></button>
 								</div>
 							</div>
+							<?php if (is_mail_configured()) { ?>
+							<div class="form-group">
+								<div class="col-sm-4 col-sm-offset-4">
+									<a href="forgot_password.php"><?php echo _("Forgot your password?"); ?></a>
+								</div>
+							</div>
+							<?php } ?>
 						</form>
 					</div>
 			</div>
