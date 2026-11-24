@@ -27,7 +27,7 @@ else {
 						<li><?php echo get_group_name($gid); ?>
 					</ul>
 					<p class="bg-warning"><small><em><?php echo _("This will also remove all group membership records and permissions."); ?></em></small></p>
-					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"></div>
+					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"> <?php echo cancel_button('groups.php', "btn-sm"); ?></div>
 				</form>
 			</div>
 		</div>

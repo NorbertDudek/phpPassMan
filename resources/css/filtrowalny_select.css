@@ -1,0 +1,13 @@
+.filtrowalny-select-wrap .list-group-item {
+	cursor: pointer;
+}
+
+.filtrowalny-select-wrap .list-group-item.disabled {
+	cursor: default;
+	color: #777;
+}
+
+.filtrowalny-select-lista {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}

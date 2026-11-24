@@ -4,7 +4,7 @@ require_once('header.php');
 
 $gid = $_POST['gid'];
 
-$users = $_POST['group_members'];
+$users = post_array('group_members');
 ?>
 
 <div class="row">
@@ -15,6 +15,10 @@ $users = $_POST['group_members'];
 			<div class="panel-heading"><strong><?php echo _("Remove Group Member(s)"); ?>:</strong> <?php echo get_group_name($gid);?></div>
 			<div class="panel-body">
 
+				<?php if (empty($users)) { ?>
+				<div class="alert alert-warning"><?php echo _("No users were selected for removal."); ?></div>
+				<?php echo cancel_button('edit_group.php?gid=' . $gid, "btn-sm"); ?>
+				<?php } else { ?>
 				<form action="do_remove_group_member.php" method="POST">
 					<input type="hidden" name="gid" value="<?php echo $gid;?>">
 					
@@ -27,6 +31,7 @@ $users = $_POST['group_members'];
 					</ul>
 					<input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>">
 				</form>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,59 @@
+/* Strefa upuszczania plikow w oknie dodawania zalacznikow */
+.strefa-upuszczania {
+	border: 2px dashed #bbb;
+	border-radius: 6px;
+	padding: 25px 15px;
+	text-align: center;
+	color: #777;
+	cursor: pointer;
+	transition: background-color .15s, border-color .15s;
+}
+.strefa-upuszczania:hover,
+.strefa-upuszczania:focus,
+.strefa-upuszczania.aktywna {
+	border-color: #337ab7;
+	background-color: #f0f6fc;
+	color: #337ab7;
+	outline: none;
+}
+.strefa-upuszczania p {
+	margin: 8px 0 0 0;
+}
+
+/* Lista zalacznikow: dluga nazwa w jednej linii z wielokropkiem, rozmiar bez lamania */
+.tabela-zalacznikow {
+	table-layout: fixed;
+	width: 100%;
+}
+.tabela-zalacznikow td {
+	vertical-align: middle !important;
+}
+.tabela-zalacznikow .nazwa-pliku {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+}
+.tabela-zalacznikow .nazwa-pliku .glyphicon {
+	flex: none;
+	margin-right: 6px;
+}
+.tabela-zalacznikow .nazwa-pliku .tekst {
+	flex: 0 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.tabela-zalacznikow .nazwa-pliku .label {
+	flex: none;
+	margin-left: 6px;
+}
+.tabela-zalacznikow .rozmiar-pliku {
+	width: 80px;
+	text-align: right;
+	white-space: nowrap;
+}
+.tabela-zalacznikow .akcja-pliku {
+	width: 40px;
+	text-align: right;
+}

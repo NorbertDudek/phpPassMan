@@ -3,13 +3,14 @@ include('resources/functions.php');
 
 $id = $_POST['id'];
 
-if (!(get_owner($id) == get_my_uid())) {
+if (!can_share_group($id)) {
 	header("location: show_permissions_error.php");
+	exit;
 	}
 
-foreach ($_POST['gid'] as $gid) {
+foreach (post_array('gid') as $gid) {
 	share_with_group($id, $gid);
 	}
 
-header("location: edit_group.php?gid=$id");
-?>
+header("location: edit_group.php?gid=$id&tab=permissions");
+?>

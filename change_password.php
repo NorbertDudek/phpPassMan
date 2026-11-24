@@ -85,6 +85,7 @@ setup_locale();
 							<p><?php echo _("For security reasons, you must set a new password before you can continue."); ?></p>
 
 							<form method="POST" action="do_change_password.php" class="form-horizontal">
+								<?php echo csrf_field(); ?>
 								<div class="form-group">
 									<label for="password" class="col-sm-4 control-label"><?php echo _("New password"); ?>:</label>
 									<div class="col-sm-8">

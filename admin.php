@@ -1,12 +1,15 @@
-<?php
+﻿<?php
 $requireadmin = true;
 require_once('header.php');
 ?>
+
+<?php include('resources/login_link_message.php'); ?>
 
 <table class="table table-hover">
 	<thead>
 		<tr>
 			<th rowspan="2" style="text-align:left;vertical-align:middle"><?php echo _("User"); ?></th>
+			<th rowspan="2" style="text-align:left;vertical-align:middle"><?php echo _("E-mail"); ?></th>
 			<th rowspan="2" style="text-align:left;vertical-align:middle"><?php echo _("Type"); ?></th>
 			<th rowspan="2" style="text-align:center;vertical-align:middle"><?php echo _("Admin"); ?></th>
 			<th rowspan="2" style="text-align:center;vertical-align:middle"><?php echo _("Export access"); ?></th>
@@ -33,6 +36,7 @@ foreach ($users as $user) {
 
 		<tr>
 			<td><?php echo $user['login'];?></td>
+			<td><?php if (!empty($user['email'])) { ?><a href="mailto:<?php echo htmlspecialchars($user['email']); ?>"><?php echo htmlspecialchars($user['email']); ?></a><?php } ?></td>
 			<td><?php echo $user['type'];?></td>
 			<td align="center"><?php if (($user['admin'] & accAdmin) != 0) { echo "✓"; }?></td>
 			<td align="center"><?php if (($user['admin'] & accExport) != 0) { echo "✓"; }?></td>
@@ -46,6 +50,13 @@ foreach ($users as $user) {
 			
 			<td><a href="edit_user.php?uid=<?php echo $user['uid'];?>" class="btn btn-xs btn-primary"><?php echo _("Edit"); ?></a>
 				<a href="delete_user.php?uid=<?php echo $user['uid'];?>" class="btn btn-xs btn-danger"><?php echo _("Delete"); ?></a>
+				<?php if ($user['type'] == 'local') {
+					$login_link_uid = $user['uid'];
+					$login_link_email = (string)$user['email'];
+					$login_link_return = 'admin';
+					$login_link_size = 'btn-xs';
+					include('resources/login_link_button.php');
+				} ?>
 			</td>
 		</tr>
 

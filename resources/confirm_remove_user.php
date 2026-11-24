@@ -8,10 +8,14 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading"><strong><?php echo _("Confirm removal"); ?></strong></div>
 				<div class="panel-body">
+					<?php if (empty(post_array('shared_users'))) { ?>
+					<div class="alert alert-warning"><?php echo _("No users were selected for removal."); ?></div>
+					<p><?php echo cancel_button('edit_group.php?gid=' . $id . '&tab=permissions', "btn-sm"); ?></p>
+					<?php } else { ?>
 					<p>
 						<?php echo _("Please confirm you would like to remove the following users"); ?>:
 						<ul>
-							<?php foreach ($_POST['shared_users'] as $uid) { ?>
+							<?php foreach (post_array('shared_users') as $uid) { ?>
 							<li><?php echo get_login($uid);?></li>
 							<input type="hidden" name="user[]" value="<?php echo $uid;?>">
 							<?php } ?>
@@ -22,7 +26,8 @@
 							<li><?php echo get_group_name($id); ?>
 						</ul>
 					</p>
-					<p><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"></p>
+					<p><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"> <?php echo cancel_button('edit_group.php?gid=' . $id . '&tab=permissions', "btn-sm"); ?></p>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

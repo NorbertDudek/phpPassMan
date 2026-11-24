@@ -14,10 +14,16 @@ $db_pass = 'pmv_P@ss';
 // YOU WILL NOT BE ABLE TO RETRIEVE ANY DATA THAT WAS CREATED PRIOR TO CHANGING THE SECRET KEY
 $secret_key = 'SOMETHINGREALLYSECRET';
 
+// Folder for database backup files (Admin > Backup). Empty = the backups folder in the application directory.
+// Backups are encrypted with $secret_key - keep a copy of the key outside the server, without it backups cannot be restored.
+// A folder outside the web root is safer; the default folder is protected with .htaccess.
+$backup_dir = '';
+
 // Locally defined superuser account
 // This is the default login with full admin rights.
 // It should not be used other than to create other logins and groups.
 $superuser = 'pmvadmin';
+// May be plain text or a hash from: php -r "echo password_hash('your password', PASSWORD_DEFAULT);"
 $superuser_password = 'password';
 
 // Once session idle timeout is reached users will have to login again

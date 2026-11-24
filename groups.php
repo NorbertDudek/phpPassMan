@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $requireadmin = false;
 require_once('header.php');
 require_once('resources/stack.php');
@@ -27,21 +27,21 @@ require_once('resources/stack.php');
 
 $grupy_do_podpowiedzi = array();
 
-function echoGroup($level, $name, $description, $gid, $chain)  {
+function echoGroup($level, $name, $description, $gid, $chain, $icon = '')  {
 	global $grupy_do_podpowiedzi;
 	$myRights = user_rights();
 	$path = get_group_path($gid);
 	$grupy_do_podpowiedzi[] = $path;
 ?>
 			<tr data-gid="<?php echo $gid; ?>" data-chain="<?php echo $chain; ?>">
-				<td><?php echo str_repeat('&nbsp;', $level *4); echo $name;?></td>
+				<td><?php echo str_repeat('&nbsp;', $level *4); echo group_icon_html($icon) . ($icon != '' ? ' ' : ''); echo $name;?></td>
 				<td><?php echo $description;?></td>
-				<td>
+				<td style="white-space: nowrap;">
 					<?php if (($myRights & accGroupEdit) != 0) { ?>
-						<a href="edit_group.php?gid=<?php echo $gid; ?>" class="btn btn-xs btn-primary"><?php echo _("Edit"); ?></a>
+						<a href="edit_group.php?gid=<?php echo $gid; ?>" class="btn btn-xs btn-primary" title="<?php echo _("Edit"); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
 					<?php } ?>
 					<?php if (($myRights & accGroupRemove) != 0) { ?>
-						<a href="delete_group.php?gid=<?php echo $gid; ?>" class="btn btn-xs btn-danger"><?php echo _("Delete"); ?></a>
+						<a href="delete_group.php?gid=<?php echo $gid; ?>" class="btn btn-xs btn-danger" title="<?php echo _("Delete"); ?>"><span class="glyphicon glyphicon-trash"></span></a>
 					<?php } ?>
 				</td>
 			</tr>
@@ -60,12 +60,13 @@ function list_groups($parent, $level = 0, $chain = '') {
 	
 	if (!is_null($groups)) 
 		foreach ($groups as $group) {
-			if ((check_group_permissions($group['gid'], get_my_uid())) || am_i_admin())  {
-				$id = $group['gid'];
-				$new_chain = ($chain === '') ? $id : $chain.','.$id;
-				echoGroup($level, $group['name'], $group['description'], $id, $chain);
-				list_groups($id, $level +1, $new_chain);
+			$id = $group['gid'];
+			$new_chain = ($chain === '') ? $id : $chain.','.$id;
+			if ((check_group_permissions($id, get_my_uid())) || am_i_admin())  {
+				echoGroup($level, $group['name'], $group['description'], $id, $chain, isset($group['icon']) ? $group['icon'] : '');
 				}
+			// Zejdz w glab drzewa niezaleznie od uprawnien do tej grupy - podgrupa moze byc udostepniona bezposrednio.
+			list_groups($id, $level +1, $new_chain);
 			}
 }
 

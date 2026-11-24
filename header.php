@@ -50,10 +50,14 @@ setup_locale();
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" type="image/x-icon" href="images/favicon.jpg">
+		<meta name="csrf-token" content="<?php echo function_exists('csrf_token') ? htmlspecialchars(csrf_token()) : ''; ?>">
 		
 		<title>phpPassMan</title>
 		
 		<!-- jQuery -->
+		<!-- Ochrona przed CSRF - token w formularzach i zapytaniach fetch() -->
+		<script src="resources/js/csrf.js"></script>
+
 		<script src="resources/jquery/jquery.min.js"></script>
 		<script src="resources/jquery/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="resources/jquery/jquery-ui.min.css"/>
@@ -62,6 +66,17 @@ setup_locale();
 		<link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap-theme.css"/>
 		<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="resources/css/buttons.css"/>
+		<link rel="stylesheet" type="text/css" href="resources/css/pole_hasla.css"/>
+		<link rel="stylesheet" type="text/css" href="resources/css/zalaczniki.css"/>
+
+		<!-- Filtrowalna lista wyboru -->
+		<link rel="stylesheet" type="text/css" href="resources/css/filtrowalny_select.css"/>
+		<script src="resources/js/filtrowalny_select.js"></script>
+
+		<!-- Zlozonosc hasel wymagana przez grupe -->
+		<script src="resources/js/zlozonosc_hasla.js"></script>
+		<script src="resources/js/historia.js"></script>
 
 	</head>
 
@@ -87,7 +102,15 @@ setup_locale();
 		<?php if (basename($_SERVER['PHP_SELF']) != 'login.php') { ?>
 		<div class="container">	
 			<div class="navbar navbar-default">
-				<div class="navbar-collapse collapse">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
+							<span class="sr-only"><?php echo _("Toggle navigation"); ?></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="navbar-collapse collapse" id="main-navbar-collapse">
 					<ul class="navbar-nav nav">
 						<li><a href="index.php"><?php echo _("Passwords"); ?></a></li>
 						<!---
@@ -150,7 +173,13 @@ setup_locale();
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo _("Admin"); ?> <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="admin.php"><?php echo _("Users"); ?></a></li>
-								<li><a href="permisiongroups.php?show=mine"><?php echo _("Groups"); ?></a></li>
+								<li><a href="permisiongroups.php?show=mine"><?php echo _("Roles"); ?></a></li>
+								<li class="divider"></li>
+								<li><a href="import.php"><?php echo _("Import passwords"); ?></a></li>
+								<li class="divider"></li>
+								<li><a href="audit.php"><?php echo _("Audit log"); ?></a></li>
+								<li><a href="backup.php"><?php echo _("Backup"); ?></a></li>
+								<li><a href="settings.php"><?php echo _("Settings"); ?></a></li>
 							</ul>
 						</li>
 						<?php } ?>

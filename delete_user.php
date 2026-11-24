@@ -27,7 +27,7 @@ else {
 						<li><?php echo get_login($uid); ?>
 					</ul>
 					<p class="bg-warning"><small><em><?php echo _("This will NOT remove password entries owned by this user."); ?></em></small></p>
-					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"></div>
+					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"> <?php echo cancel_button('admin.php', "btn-sm"); ?></div>
 				</form>
 			</div>
 		</div>

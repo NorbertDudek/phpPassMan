@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     $exportvisible = true; 
     require_once('header.php');
 
@@ -15,13 +15,13 @@
 						</div>
 					</div>
 
-				<table class="table table-hover" id="passwords_table">
+				<table class="table table-hover" id="passwords_table" style="table-layout:fixed; word-wrap:break-word;">
 					<thead>
 						<tr>
-							<th class="col-xs-2"><?php echo _("Name"); ?></th>
-							<th class="col-xs-2"><?php echo _("User name"); ?></th>
-							<th class="col-xs-3"><?php echo _("Notes"); ?></th>
-							<th class="col-xs-3"><?php echo _("Actions"); ?></th>
+							<th><?php echo _("Name"); ?></th>
+							<th><?php echo _("User name"); ?></th>
+							<th><?php echo _("Notes"); ?></th>
+							<th style="width:100px;"><?php echo _("Actions"); ?></th>
 						</tr>
 					</thead>
 					<tbody id="password">
@@ -29,6 +29,7 @@
 
 
 function show_password($gid, $level, $chain = '') {
+	global $tagi_do_podpowiedzi;
 	$results = get_my_passwords($gid);
 	if (!is_array($results)) {
 		return;
@@ -37,21 +38,26 @@ function show_password($gid, $level, $chain = '') {
 		$id =  $entry['id'];
 		$name = $entry['name'];
 		$login = htmlspecialchars_decode(decrypt_string($entry['login']));
-		$notes = $entry['note'];
+		$notes = decrypt_text($entry['note']);
+		// Tagi nie sa wyswietlane na liscie - trafiaja tylko do atrybutu przeszukiwanego przez filtr
+		$tags = tags_to_array(isset($entry['tags']) ? $entry['tags'] : '');
+		foreach ($tags as $tag) {
+			$tagi_do_podpowiedzi[mb_strtolower($tag, 'UTF-8')] = $tag;
+		}
 		$myRights = user_rights();
-		
+
 		?>
-							<tr data-chain="<?php echo $chain;?>" onclick="window.location='show.php?id=<?php echo $id;?>'">
+							<tr data-chain="<?php echo $chain;?>" data-tags="<?php echo htmlspecialchars(mb_strtolower(implode(' ', $tags), 'UTF-8')); ?>" onclick="window.location='show.php?id=<?php echo $id;?>'">
 								<td><?php echo str_repeat('&nbsp;&nbsp;', $level *4 +4).$name; ?></td>
 								<td><?php echo htmlspecialchars($login); ?></td>
 								<td><?php echo $notes; ?></td>
-								<td>
-									<a class="btn btn-primary btn-xs" href="show.php?id=<?php echo $id;?>"><?php echo _("Show"); ?></a>
+								<td style="white-space:nowrap;">
+									<a class="btn btn-primary btn-xs" href="show.php?id=<?php echo $id;?>" title="<?php echo _("Show"); ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
 									<?php if (($myRights & accPasswordEdit) != 0) { ?>
-										<a class="btn btn-primary btn-xs" href="edit.php?id=<?php echo $id;?>"><?php echo _("Edit"); ?></a>
+										<a class="btn btn-primary btn-xs" href="edit.php?id=<?php echo $id;?>" title="<?php echo _("Edit"); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
 									<?php } ?>
 									<?php if (($myRights & accPasswordRemove) != 0) { ?>
-										<a class="btn btn-danger btn-xs" href="delete.php?id=<?php echo $id;?>"><?php echo _("Delete"); ?></a>
+										<a class="btn btn-danger btn-xs" href="delete.php?id=<?php echo $id;?>" title="<?php echo _("Delete"); ?>"><span class="glyphicon glyphicon-trash"></span></a>
 									<?php } ?>
 								</td>
 							</tr>
@@ -60,6 +66,7 @@ function show_password($gid, $level, $chain = '') {
 }
 
 $grupy_do_podpowiedzi = array();
+$tagi_do_podpowiedzi = array();
 
 function show_group($gid, $level = 0, $chain = '') {
 	global $grupy_do_podpowiedzi;
@@ -68,20 +75,24 @@ function show_group($gid, $level = 0, $chain = '') {
 		return;
 	}
 	foreach ($groups as $group) {
-		if (check_group_permissions($group['gid'], get_my_uid()))  {
-			$id = $group['gid'];
-			$path = get_group_path($group['gid']);
-			$description = get_group_description($group['gid']);
-			$new_chain = ($chain === '') ? $id : $chain.','.$id;
-			
+		$id = $group['gid'];
+		$new_chain = ($chain === '') ? $id : $chain.','.$id;
+		if (check_group_permissions($id, get_my_uid()))  {
+			$path = get_group_path($id);
+			$description = get_group_description($id);
+			$icon = group_icon_html(isset($group['icon']) ? $group['icon'] : '');
+			if ($icon != '') {
+				$icon .= ' ';
+			}
+
 			$grupy_do_podpowiedzi[] = $path;
 			
-			echo "<tr data-chain=\"".$chain."\" data-gid=\"".$id."\" style=\"background-color:#d6eaf8; padding:0\"><td style=\"padding-top: 0;padding-bottom: 0\"><h5 style \" margin-top:0\"><b>".str_repeat('&nbsp;&nbsp;', $level *4).$path."</b></h5></td><td></td><td>".$description."</td><td></td>";
+			echo "<tr data-chain=\"".$chain."\" data-gid=\"".$id."\" style=\"background-color:#d6eaf8; padding:0\"><td style=\"padding-top: 0;padding-bottom: 0\"><h5 style \" margin-top:0\"><b>".str_repeat('&nbsp;&nbsp;', $level *4).$icon.$path."</b></h5></td><td></td><td>".$description."</td><td></td>";
 			
 			show_password($id, $level, $new_chain);
-			
-			show_group($id, $level +1, $new_chain);
-		}
+			}
+		// Rekurencja niezaleznie od uprawnien do tej grupy - podgrupa moze byc udostepniona bezposrednio.
+		show_group($id, $level +1, $new_chain);
 	}
 }
 
@@ -96,6 +107,7 @@ show_group(0);
 				<br>
 <script>
 const dostepneGrupy = <?php echo json_encode(array_values($grupy_do_podpowiedzi), JSON_UNESCAPED_UNICODE); ?>;
+const dostepneTagi = <?php ksort($tagi_do_podpowiedzi); echo json_encode(array_values($tagi_do_podpowiedzi), JSON_UNESCAPED_UNICODE); ?>;
 </script>
 <script>
 
@@ -116,8 +128,9 @@ function pokazPodpowiedzi(tekst) {
   }
 
   const dopasowane = dostepneGrupy.filter(g => g.toLowerCase().indexOf(szukanyTekst) > -1).slice(0, 10);
+  const dopasowaneTagi = dostepneTagi.filter(t => t.toLowerCase().indexOf(szukanyTekst) > -1).slice(0, 10);
 
-  if (dopasowane.length === 0) {
+  if (dopasowane.length === 0 && dopasowaneTagi.length === 0) {
     kontener.style.display = 'none';
     kontener.innerHTML = '';
     return;
@@ -132,6 +145,21 @@ function pokazPodpowiedzi(tekst) {
     pozycja.onclick = function(e) {
       e.preventDefault();
       wybierzGrupe(grupa);
+    };
+    kontener.appendChild(pozycja);
+  });
+  // Podpowiedzi tagow oznaczone ikona - wybor dziala tak samo jak dla grupy (wstawia tekst do wyszukiwania)
+  dopasowaneTagi.forEach(function(tag) {
+    const pozycja = document.createElement('a');
+    pozycja.href = '#';
+    pozycja.className = 'list-group-item';
+    const ikona = document.createElement('span');
+    ikona.className = 'glyphicon glyphicon-tag text-muted';
+    pozycja.appendChild(ikona);
+    pozycja.appendChild(document.createTextNode(' ' + tag));
+    pozycja.onclick = function(e) {
+      e.preventDefault();
+      wybierzGrupe(tag);
     };
     kontener.appendChild(pozycja);
   });
@@ -201,7 +229,8 @@ function filtrujWiersze(tabelaId, tekst) {
         wiersz.style.display = 'none'; // tymczasowo, może zostać pokazany w kroku 3
       }
     } else {
-      const zawartosc = wiersz.textContent.toLowerCase();
+      // Wiersz hasla: przeszukujemy widoczna tresc oraz ukryte tagi
+      const zawartosc = wiersz.textContent.toLowerCase() + ' ' + (wiersz.getAttribute('data-tags') || '');
       if (chainMatches(wiersz) || zawartosc.indexOf(szukanyTekst) > -1) {
         wiersz.style.display = '';
       } else {

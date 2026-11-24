@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 
 	include('resources/functions.php');
 	include('resources/config.php');
 
-$fileContent = ";name;login;password;notes".chr(13);
+$fileContent = ";name;login;password;notes;url;expires".chr(13);
 
 function show_password($gid, $level) {
 	global $fileContent;
@@ -14,9 +14,11 @@ function show_password($gid, $level) {
 		$name = $entry['name'];
 		$login = htmlspecialchars_decode(decrypt_string($entry['login']));
 		$password = htmlspecialchars_decode(decrypt_string($entry['password']));
-		$notes = $entry['note'];
+		$notes = decrypt_text($entry['note']);
+		$url = isset($entry['url']) ? $entry['url'] : '';
+		$expires = isset($entry['expires']) ? $entry['expires'] : '';
 		
-		$fileContent .= ";".$name.";".$login.";".$password.";".str_replace(chr(13).chr(10), "\\n", $notes).chr(13);
+		$fileContent .= ";".$name.";".$login.";".$password.";".str_replace(chr(13).chr(10), "\\n", $notes).";".$url.";".$expires.chr(13);
 	}
 }
 
@@ -27,15 +29,15 @@ function show_group($gid, $level = 0) {
 	foreach ($groups as $group) {
 		$id = $group['gid'];
 		if (check_group_permissions($id, get_my_uid())) {
-			$path = get_group_path($group['gid']);
-			$description = get_group_description($group['gid']);
+			$path = get_group_path($id);
+			$description = get_group_description($id);
 
 			$fileContent .= $path." - ".$description.chr(13);
 			
 			show_password($id, $level);
-			
-			show_group($id, $level +1);
-		}
+			}
+		// Rekurencja niezaleznie od uprawnien do tej grupy - podgrupa moze byc udostepniona bezposrednio.
+		show_group($id, $level +1);
 	}
 }
 

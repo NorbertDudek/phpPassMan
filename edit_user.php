@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $requireadmin = true;
 require_once('header.php');
 
@@ -15,6 +15,7 @@ $groupEdit = get_user_permission($uid) & accGroupEdit;
 $groupRemove = get_user_permission($uid) & accGroupRemove;
 $groupSee = get_user_permission($uid) & accGroupSee;
 $forcePasswordChange = get_must_change_password($uid);
+$email = get_user_email($uid);
 ?>
 
 <div class="row">
@@ -24,6 +25,7 @@ $forcePasswordChange = get_must_change_password($uid);
 		<div class="panel panel-primary">
 			<div class="panel-heading"><strong><?php echo _("Edit User"); ?></strong></div>
 			<div class="panel-body">
+				<?php include('resources/login_link_message.php'); ?>
 				<?php if (isset($_GET['error']) && $_GET['error'] != '') { ?>
 				<div class="alert alert-danger">
 					<?php
@@ -32,6 +34,9 @@ $forcePasswordChange = get_must_change_password($uid);
 					}
 					elseif ($_GET['error'] == 'same') {
 						echo _("The new password must be different from the current password.");
+					}
+					elseif ($_GET['error'] == 'email') {
+						echo _("Invalid e-mail address.");
 					}
 					?>
 				</div>
@@ -45,6 +50,10 @@ $forcePasswordChange = get_must_change_password($uid);
 					<div class="form-group">
 						<label class="col-sm-3 control-label"><?php echo _("Type"); ?>:</label>
 						<div class="col-sm-9"><p class="form-control-static"><?php echo $type; ?></p></div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-3 control-label"><?php echo _("E-mail"); ?>:</label>
+						<div class="col-sm-9"><input type="email" class="form-control" id="email" name="email" maxlength="254" value="<?php echo htmlspecialchars($email); ?>" <?php if ($type == "superuser") { echo "disabled"; }?>></div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label"><?php echo _("Change Password"); ?>:</label>
@@ -89,11 +98,29 @@ $forcePasswordChange = get_must_change_password($uid);
 					<div class="form-group">
 						<div class="col-sm-3">&nbsp;</div>
 						<div class="col-sm-9">
-							<input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Save changes"); ?>">
+							<input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Save changes"); ?>"> <?php echo cancel_button('admin.php', "btn-sm"); ?>
 							<?php if ($type != "superuser") { ?><a href="delete_user.php?uid=<?php echo $uid;?>" class="btn btn-sm btn-danger"><?php echo _("Delete User"); ?></a> <?php } ?>
 						</div>
 					</div>
 				</form>
+				<?php if ($type == 'local') { ?>
+				<hr>
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><?php echo _("Login link"); ?>:</label>
+						<div class="col-sm-9">
+							<?php
+								$login_link_uid = $uid;
+								$login_link_email = $email;
+								$login_link_return = 'edit';
+								$login_link_size = 'btn-sm';
+								include('resources/login_link_button.php');
+							?>
+							<span class="help-block"><?php echo htmlspecialchars(sprintf(_("The user receives an e-mail with a link to log in and set a new password. The link works once and expires after %d hours."), USER_LOGIN_LINK_VALID_HOURS)); ?></span>
+						</div>
+					</div>
+				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

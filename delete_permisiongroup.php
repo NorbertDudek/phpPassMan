@@ -22,12 +22,12 @@ else {
 				<form action="do_delete_permisiongroup.php" method="POST">
 					<input type="hidden" name="gid" value="<?php echo $gid;?>">
 					
-					<div><?php echo _("Please confirm you would like to remove the following permision group:"); ?></div>
+					<div><?php echo _("Please confirm you would like to remove the following role:"); ?></div>
 					<ul>
 						<li><?php echo get_permisiongroup_name($gid); ?>
 					</ul>
-					<p class="bg-warning"><small><em><?php echo _("This will also remove all group membership records and permissions."); ?></em></small></p>
-					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"></div>
+					<p class="bg-warning"><small><em><?php echo _("This will also remove all role assignments and permissions."); ?></em></small></p>
+					<div><input type="submit" class="btn btn-sm btn-primary" value="<?php echo _("Confirm"); ?>"> <?php echo cancel_button('permisiongroups.php', "btn-sm"); ?></div>
 				</form>
 			</div>
 		</div>

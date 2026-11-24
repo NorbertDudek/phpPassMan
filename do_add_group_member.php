@@ -7,7 +7,7 @@ if (!(am_i_admin())) {
 	header("location: show_permissions_error.php");
 	}
 
-foreach ($_POST['uid'] as $uid) {
+foreach (post_array('uid') as $uid) {
 	add_user_to_group($gid, $uid);
 	}
 
