@@ -5,9 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-## [1.0.0] - 2026-11-24
+## [2.4.2] - 2026-11-24
 
-First public release of phpPassMan as a standalone project.
+Release published as phpPassMan.
 
 ### Added
 - SecureSend: share an entry with people outside the organisation through a link with expiry time, view limit and optional password; active links can be listed and revoked.
@@ -32,5 +32,5 @@ First public release of phpPassMan as a standalone project.
 - LDAP authentication.
 - Dependency on the PHP mcrypt extension.
 
-[Unreleased]: https://github.com/NorbertDudek/phpMyPassword/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/NorbertDudek/phpMyPassword/releases/tag/v1.0.0
+[Unreleased]: https://github.com/NorbertDudek/phpMyPassword/compare/v2.4.2...HEAD
+[2.4.2]: https://github.com/NorbertDudek/phpMyPassword/releases/tag/v2.4.2
