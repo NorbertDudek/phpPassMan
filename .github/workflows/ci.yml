@@ -17,7 +17,7 @@ jobs:
       matrix:
         php: ['7.4', '8.0', '8.1', '8.2', '8.3']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -31,7 +31,7 @@ jobs:
     name: No local config committed
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Check that resources/config.php is not in the repository
         run: |
           if git ls-files --error-unmatch resources/config.php >/dev/null 2>&1; then
