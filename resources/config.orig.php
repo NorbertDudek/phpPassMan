@@ -29,6 +29,4 @@ $superuser_password = 'password';
 // Once session idle timeout is reached users will have to login again
 $session_timeout = "900";	// 900 seconds = 15 minutes
 
-// Set to false for a more 'professional' look
-$doge = true;
 ?>

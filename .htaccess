@@ -1,4 +1,5 @@
-AddHandler application/x-httpd-php74 php
+# Hosting-specific PHP version selection, e.g. (uncomment and adjust if your host needs it):
+# AddHandler application/x-httpd-php74 php
 
 
 # Blokada bezpośredniego dostępu do konfiguracji (także kopii typu config.php.bak, config.php~)

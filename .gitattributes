@@ -1,0 +1,21 @@
+# Keep line endings exactly as committed (the code base mixes CRLF and LF)
+* -text
+
+# Third-party libraries - excluded from GitHub language statistics
+resources/bootstrap/** linguist-vendored
+resources/jquery/**    linguist-vendored
+
+# Binary assets
+*.png binary
+*.gif binary
+*.jpg binary
+*.mo  binary
+*.eot binary
+*.ttf binary
+*.woff binary
+
+# Not included in release archives (git archive / GitHub "Source code")
+.github/        export-ignore
+.gitattributes  export-ignore
+.editorconfig   export-ignore
+CONTRIBUTING.md export-ignore
